@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+.header {
+	height: 50px;
+	line-height: 50px;
+}
+
+.header p {
+	height: 50px;
+	text-align: center;
+	border-bottom: 3px solid #ccc;
+}
+
+.header p span {
+	font-family: '黑体';
+	font-size: 30px;
+}
+
+.header p a {
+	font-size: 20px;
+	padding-top: 15px;
+}
+
+.header a:hover, .nologin a:hover {
+	text-decoration: none;
+}
+
+.img-responsive {
+	padding: 20px 0;
+}
+
+.code {
+	margin-left: 0;
+}
+
+.radio, .nologin {
+	padding-bottom: 15px;
+}
