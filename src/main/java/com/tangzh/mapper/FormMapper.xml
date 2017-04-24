@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tangzh.mapper.FormMapper" >
+  <resultMap id="BaseResultMap" type="com.tangzh.domain.Form" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <id column="jno" property="jno" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
+    <result column="app_date" property="appDate" jdbcType="CHAR" />
+    <result column="app_time" property="appTime" jdbcType="TIME" />
+    <result column="sno" property="sno" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, jno, content, time, app_date, app_time, sno, status
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.FormExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from form
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.tangzh.domain.FormKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from form
+    where id = #{id,jdbcType=INTEGER}
+      and jno = #{jno,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.tangzh.domain.FormKey" >
+    delete from form
+    where id = #{id,jdbcType=INTEGER}
+      and jno = #{jno,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.tangzh.domain.FormExample" >
+    delete from form
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.tangzh.domain.Form" >
+    insert into form (id, jno, content, 
+      time, app_date, app_time, 
+      sno, status)
+    values (#{id,jdbcType=INTEGER}, #{jno,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{time,jdbcType=TIMESTAMP}, #{appDate,jdbcType=CHAR}, #{appTime,jdbcType=TIME}, 
+      #{sno,jdbcType=INTEGER}, #{status,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.tangzh.domain.Form" >
+    insert into form
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="jno != null" >
+        jno,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="time != null" >
+        time,
+      </if>
+      <if test="appDate != null" >
+        app_date,
+      </if>
+      <if test="appTime != null" >
+        app_time,
+      </if>
+      <if test="sno != null" >
+        sno,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="jno != null" >
+        #{jno,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appDate != null" >
+        #{appDate,jdbcType=CHAR},
+      </if>
+      <if test="appTime != null" >
+        #{appTime,jdbcType=TIME},
+      </if>
+      <if test="sno != null" >
+        #{sno,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.tangzh.domain.FormExample" resultType="java.lang.Integer" >
+    select count(*) from form
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update form
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.jno != null" >
+        jno = #{record.jno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.appDate != null" >
+        app_date = #{record.appDate,jdbcType=CHAR},
+      </if>
+      <if test="record.appTime != null" >
+        app_time = #{record.appTime,jdbcType=TIME},
+      </if>
+      <if test="record.sno != null" >
+        sno = #{record.sno,jdbcType=INTEGER},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update form
+    set id = #{record.id,jdbcType=INTEGER},
+      jno = #{record.jno,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=VARCHAR},
+      time = #{record.time,jdbcType=TIMESTAMP},
+      app_date = #{record.appDate,jdbcType=CHAR},
+      app_time = #{record.appTime,jdbcType=TIME},
+      sno = #{record.sno,jdbcType=INTEGER},
+      status = #{record.status,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.tangzh.domain.Form" >
+    update form
+    <set >
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appDate != null" >
+        app_date = #{appDate,jdbcType=CHAR},
+      </if>
+      <if test="appTime != null" >
+        app_time = #{appTime,jdbcType=TIME},
+      </if>
+      <if test="sno != null" >
+        sno = #{sno,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+      and jno = #{jno,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.Form" >
+    update form
+    set content = #{content,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP},
+      app_date = #{appDate,jdbcType=CHAR},
+      app_time = #{appTime,jdbcType=TIME},
+      sno = #{sno,jdbcType=INTEGER},
+      status = #{status,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+      and jno = #{jno,jdbcType=VARCHAR}
+  </update>
+</mapper>
