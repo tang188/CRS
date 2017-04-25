@@ -2,7 +2,9 @@ package com.tangzh.domain;
 
 import java.util.Date;
 
-public class Notices extends NoticesKey {
+public class Notices {
+    private String noticeId;
+
     private Integer ano;
 
     private String name;
@@ -10,6 +12,14 @@ public class Notices extends NoticesKey {
     private String content;
 
     private Date time;
+
+    public String getNoticeId() {
+        return noticeId;
+    }
+
+    public void setNoticeId(String noticeId) {
+        this.noticeId = noticeId == null ? null : noticeId.trim();
+    }
 
     public Integer getAno() {
         return ano;

@@ -2,7 +2,6 @@ package com.tangzh.mapper;
 
 import com.tangzh.domain.Student;
 import com.tangzh.domain.StudentExample;
-import com.tangzh.domain.StudentKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -11,7 +10,7 @@ public interface StudentMapper {
 
     int deleteByExample(StudentExample example);
 
-    int deleteByPrimaryKey(StudentKey key);
+    int deleteByPrimaryKey(Integer sno);
 
     int insert(Student record);
 
@@ -19,7 +18,7 @@ public interface StudentMapper {
 
     List<Student> selectByExample(StudentExample example);
 
-    Student selectByPrimaryKey(StudentKey key);
+    Student selectByPrimaryKey(Integer sno);
 
     int updateByExampleSelective(@Param("record") Student record, @Param("example") StudentExample example);
 

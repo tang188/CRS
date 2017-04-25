@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tangzh.mapper.NoticesMapper" >
   <resultMap id="BaseResultMap" type="com.tangzh.domain.Notices" >
-    <id column="id" property="id" jdbcType="INTEGER" />
     <id column="notice_id" property="noticeId" jdbcType="VARCHAR" />
     <result column="ano" property="ano" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -68,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, notice_id, ano, name, content, time
+    notice_id, ano, name, content, time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.NoticesExample" >
     select
@@ -84,17 +83,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.tangzh.domain.NoticesKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from notices
-    where id = #{id,jdbcType=INTEGER}
-      and notice_id = #{noticeId,jdbcType=VARCHAR}
+    where notice_id = #{noticeId,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.tangzh.domain.NoticesKey" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from notices
-    where id = #{id,jdbcType=INTEGER}
-      and notice_id = #{noticeId,jdbcType=VARCHAR}
+    where notice_id = #{noticeId,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.tangzh.domain.NoticesExample" >
     delete from notices
@@ -103,19 +100,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.tangzh.domain.Notices" >
-    insert into notices (id, notice_id, ano, 
-      name, content, time
-      )
-    values (#{id,jdbcType=INTEGER}, #{noticeId,jdbcType=VARCHAR}, #{ano,jdbcType=INTEGER}, 
-      #{name,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}
-      )
+    insert into notices (notice_id, ano, name, 
+      content, time)
+    values (#{noticeId,jdbcType=VARCHAR}, #{ano,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{content,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.tangzh.domain.Notices" >
     insert into notices
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="noticeId != null" >
         notice_id,
       </if>
@@ -133,9 +125,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="noticeId != null" >
         #{noticeId,jdbcType=VARCHAR},
       </if>
@@ -162,9 +151,6 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update notices
     <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
-      </if>
       <if test="record.noticeId != null" >
         notice_id = #{record.noticeId,jdbcType=VARCHAR},
       </if>
@@ -187,8 +173,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update notices
-    set id = #{record.id,jdbcType=INTEGER},
-      notice_id = #{record.noticeId,jdbcType=VARCHAR},
+    set notice_id = #{record.noticeId,jdbcType=VARCHAR},
       ano = #{record.ano,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
@@ -213,8 +198,7 @@
         time = #{time,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-      and notice_id = #{noticeId,jdbcType=VARCHAR}
+    where notice_id = #{noticeId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.Notices" >
     update notices
@@ -222,7 +206,6 @@
       name = #{name,jdbcType=VARCHAR},
       content = #{content,jdbcType=VARCHAR},
       time = #{time,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
-      and notice_id = #{noticeId,jdbcType=VARCHAR}
+    where notice_id = #{noticeId,jdbcType=VARCHAR}
   </update>
 </mapper>

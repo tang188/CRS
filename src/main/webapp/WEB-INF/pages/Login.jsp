@@ -31,8 +31,8 @@
 								<img src="/images/photo.jpg" alt="photo">
 							</div>
 							<div class="col-xs-6">
-								<input type="email" class="form-control" id="registerInputEmail"
-									placeholder="邮箱" name="email">
+								<input type="text" class="form-control" id="registerInputEmail"
+									 name="email">
 							</div>
 						</div>
 						<div class="form-group">

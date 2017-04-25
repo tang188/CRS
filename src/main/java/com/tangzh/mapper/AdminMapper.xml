@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tangzh.mapper.AdminMapper" >
   <resultMap id="BaseResultMap" type="com.tangzh.domain.Admin" >
-    <id column="id" property="id" jdbcType="INTEGER" />
     <id column="ano" property="ano" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -68,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, ano, name, password, addr, tel
+    ano, name, password, addr, tel
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.AdminExample" >
     select
@@ -84,17 +83,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.tangzh.domain.AdminKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from admin
-    where id = #{id,jdbcType=INTEGER}
-      and ano = #{ano,jdbcType=INTEGER}
+    where ano = #{ano,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.tangzh.domain.AdminKey" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from admin
-    where id = #{id,jdbcType=INTEGER}
-      and ano = #{ano,jdbcType=INTEGER}
+    where ano = #{ano,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.tangzh.domain.AdminExample" >
     delete from admin
@@ -103,19 +100,14 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.tangzh.domain.Admin" >
-    insert into admin (id, ano, name, 
-      password, addr, tel
-      )
-    values (#{id,jdbcType=INTEGER}, #{ano,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}
-      )
+    insert into admin (ano, name, password, 
+      addr, tel)
+    values (#{ano,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{addr,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.tangzh.domain.Admin" >
     insert into admin
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="ano != null" >
         ano,
       </if>
@@ -133,9 +125,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="ano != null" >
         #{ano,jdbcType=INTEGER},
       </if>
@@ -162,9 +151,6 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update admin
     <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
-      </if>
       <if test="record.ano != null" >
         ano = #{record.ano,jdbcType=INTEGER},
       </if>
@@ -187,8 +173,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update admin
-    set id = #{record.id,jdbcType=INTEGER},
-      ano = #{record.ano,jdbcType=INTEGER},
+    set ano = #{record.ano,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
       addr = #{record.addr,jdbcType=VARCHAR},
@@ -213,8 +198,7 @@
         tel = #{tel,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-      and ano = #{ano,jdbcType=INTEGER}
+    where ano = #{ano,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.Admin" >
     update admin
@@ -222,7 +206,6 @@
       password = #{password,jdbcType=VARCHAR},
       addr = #{addr,jdbcType=VARCHAR},
       tel = #{tel,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-      and ano = #{ano,jdbcType=INTEGER}
+    where ano = #{ano,jdbcType=INTEGER}
   </update>
 </mapper>

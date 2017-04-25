@@ -2,7 +2,9 @@ package com.tangzh.domain;
 
 import java.util.Date;
 
-public class Form extends FormKey {
+public class Form {
+    private String jno;
+
     private String content;
 
     private Date time;
@@ -14,6 +16,14 @@ public class Form extends FormKey {
     private Integer sno;
 
     private String status;
+
+    public String getJno() {
+        return jno;
+    }
+
+    public void setJno(String jno) {
+        this.jno = jno == null ? null : jno.trim();
+    }
 
     public String getContent() {
         return content;

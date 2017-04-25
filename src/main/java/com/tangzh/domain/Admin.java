@@ -1,6 +1,8 @@
 package com.tangzh.domain;
 
-public class Admin extends AdminKey {
+public class Admin {
+    private Integer ano;
+
     private String name;
 
     private String password;
@@ -8,6 +10,14 @@ public class Admin extends AdminKey {
     private String addr;
 
     private String tel;
+
+    public Integer getAno() {
+        return ano;
+    }
+
+    public void setAno(Integer ano) {
+        this.ano = ano;
+    }
 
     public String getName() {
         return name;

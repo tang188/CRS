@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tangzh.mapper.FormMapper" >
   <resultMap id="BaseResultMap" type="com.tangzh.domain.Form" >
-    <id column="id" property="id" jdbcType="INTEGER" />
     <id column="jno" property="jno" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="time" property="time" jdbcType="TIMESTAMP" />
@@ -70,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, jno, content, time, app_date, app_time, sno, status
+    jno, content, time, app_date, app_time, sno, status
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.FormExample" >
     select
@@ -86,17 +85,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.tangzh.domain.FormKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from form
-    where id = #{id,jdbcType=INTEGER}
-      and jno = #{jno,jdbcType=VARCHAR}
+    where jno = #{jno,jdbcType=VARCHAR}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.tangzh.domain.FormKey" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from form
-    where id = #{id,jdbcType=INTEGER}
-      and jno = #{jno,jdbcType=VARCHAR}
+    where jno = #{jno,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.tangzh.domain.FormExample" >
     delete from form
@@ -105,19 +102,16 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.tangzh.domain.Form" >
-    insert into form (id, jno, content, 
-      time, app_date, app_time, 
-      sno, status)
-    values (#{id,jdbcType=INTEGER}, #{jno,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
-      #{time,jdbcType=TIMESTAMP}, #{appDate,jdbcType=CHAR}, #{appTime,jdbcType=TIME}, 
-      #{sno,jdbcType=INTEGER}, #{status,jdbcType=CHAR})
+    insert into form (jno, content, time, 
+      app_date, app_time, sno, status
+      )
+    values (#{jno,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
+      #{appDate,jdbcType=CHAR}, #{appTime,jdbcType=TIME}, #{sno,jdbcType=INTEGER}, #{status,jdbcType=CHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.tangzh.domain.Form" >
     insert into form
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="jno != null" >
         jno,
       </if>
@@ -141,9 +135,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="jno != null" >
         #{jno,jdbcType=VARCHAR},
       </if>
@@ -176,9 +167,6 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update form
     <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
-      </if>
       <if test="record.jno != null" >
         jno = #{record.jno,jdbcType=VARCHAR},
       </if>
@@ -207,8 +195,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update form
-    set id = #{record.id,jdbcType=INTEGER},
-      jno = #{record.jno,jdbcType=VARCHAR},
+    set jno = #{record.jno,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
       time = #{record.time,jdbcType=TIMESTAMP},
       app_date = #{record.appDate,jdbcType=CHAR},
@@ -241,8 +228,7 @@
         status = #{status,jdbcType=CHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-      and jno = #{jno,jdbcType=VARCHAR}
+    where jno = #{jno,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.Form" >
     update form
@@ -252,7 +238,6 @@
       app_time = #{appTime,jdbcType=TIME},
       sno = #{sno,jdbcType=INTEGER},
       status = #{status,jdbcType=CHAR}
-    where id = #{id,jdbcType=INTEGER}
-      and jno = #{jno,jdbcType=VARCHAR}
+    where jno = #{jno,jdbcType=VARCHAR}
   </update>
 </mapper>

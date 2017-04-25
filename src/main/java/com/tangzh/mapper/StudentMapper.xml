@@ -2,7 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tangzh.mapper.StudentMapper" >
   <resultMap id="BaseResultMap" type="com.tangzh.domain.Student" >
-    <id column="id" property="id" jdbcType="INTEGER" />
     <id column="sno" property="sno" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
@@ -72,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, sno, name, password, sex, age, dept, specialty, addr, tel
+    sno, name, password, sex, age, dept, specialty, addr, tel
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.StudentExample" >
     select
@@ -88,17 +87,15 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.tangzh.domain.StudentKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from student
-    where id = #{id,jdbcType=INTEGER}
-      and sno = #{sno,jdbcType=INTEGER}
+    where sno = #{sno,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.tangzh.domain.StudentKey" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from student
-    where id = #{id,jdbcType=INTEGER}
-      and sno = #{sno,jdbcType=INTEGER}
+    where sno = #{sno,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.tangzh.domain.StudentExample" >
     delete from student
@@ -107,21 +104,16 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.tangzh.domain.Student" >
-    insert into student (id, sno, name, 
-      password, sex, age, dept, 
-      specialty, addr, tel
-      )
-    values (#{id,jdbcType=INTEGER}, #{sno,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, #{age,jdbcType=INTEGER}, #{dept,jdbcType=VARCHAR}, 
-      #{specialty,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}
-      )
+    insert into student (sno, name, password, 
+      sex, age, dept, specialty, 
+      addr, tel)
+    values (#{sno,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=CHAR}, #{age,jdbcType=INTEGER}, #{dept,jdbcType=VARCHAR}, #{specialty,jdbcType=VARCHAR}, 
+      #{addr,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.tangzh.domain.Student" >
     insert into student
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
       <if test="sno != null" >
         sno,
       </if>
@@ -151,9 +143,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="sno != null" >
         #{sno,jdbcType=INTEGER},
       </if>
@@ -192,9 +181,6 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update student
     <set >
-      <if test="record.id != null" >
-        id = #{record.id,jdbcType=INTEGER},
-      </if>
       <if test="record.sno != null" >
         sno = #{record.sno,jdbcType=INTEGER},
       </if>
@@ -229,8 +215,7 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update student
-    set id = #{record.id,jdbcType=INTEGER},
-      sno = #{record.sno,jdbcType=INTEGER},
+    set sno = #{record.sno,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
       sex = #{record.sex,jdbcType=CHAR},
@@ -271,8 +256,7 @@
         tel = #{tel,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
-      and sno = #{sno,jdbcType=INTEGER}
+    where sno = #{sno,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.Student" >
     update student
@@ -284,7 +268,6 @@
       specialty = #{specialty,jdbcType=VARCHAR},
       addr = #{addr,jdbcType=VARCHAR},
       tel = #{tel,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-      and sno = #{sno,jdbcType=INTEGER}
+    where sno = #{sno,jdbcType=INTEGER}
   </update>
 </mapper>

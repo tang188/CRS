@@ -2,7 +2,9 @@ package com.tangzh.domain;
 
 import java.util.Date;
 
-public class News extends NewsKey {
+public class News {
+    private Integer newsid;
+
     private String title;
 
     private String content;
@@ -10,6 +12,14 @@ public class News extends NewsKey {
     private Date time;
 
     private Integer ano;
+
+    public Integer getNewsid() {
+        return newsid;
+    }
+
+    public void setNewsid(Integer newsid) {
+        this.newsid = newsid;
+    }
 
     public String getTitle() {
         return title;

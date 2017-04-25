@@ -2,7 +2,6 @@ package com.tangzh.mapper;
 
 import com.tangzh.domain.News;
 import com.tangzh.domain.NewsExample;
-import com.tangzh.domain.NewsKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -11,7 +10,7 @@ public interface NewsMapper {
 
     int deleteByExample(NewsExample example);
 
-    int deleteByPrimaryKey(NewsKey key);
+    int deleteByPrimaryKey(Integer newsid);
 
     int insert(News record);
 
@@ -19,7 +18,7 @@ public interface NewsMapper {
 
     List<News> selectByExample(NewsExample example);
 
-    News selectByPrimaryKey(NewsKey key);
+    News selectByPrimaryKey(Integer newsid);
 
     int updateByExampleSelective(@Param("record") News record, @Param("example") NewsExample example);
 

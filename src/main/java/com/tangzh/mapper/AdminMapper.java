@@ -2,7 +2,6 @@ package com.tangzh.mapper;
 
 import com.tangzh.domain.Admin;
 import com.tangzh.domain.AdminExample;
-import com.tangzh.domain.AdminKey;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -11,7 +10,7 @@ public interface AdminMapper {
 
     int deleteByExample(AdminExample example);
 
-    int deleteByPrimaryKey(AdminKey key);
+    int deleteByPrimaryKey(Integer ano);
 
     int insert(Admin record);
 
@@ -19,7 +18,7 @@ public interface AdminMapper {
 
     List<Admin> selectByExample(AdminExample example);
 
-    Admin selectByPrimaryKey(AdminKey key);
+    Admin selectByPrimaryKey(Integer ano);
 
     int updateByExampleSelective(@Param("record") Admin record, @Param("example") AdminExample example);
 
