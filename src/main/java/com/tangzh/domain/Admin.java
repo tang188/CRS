@@ -1,7 +1,7 @@
 package com.tangzh.domain;
 
 public class Admin {
-    private Integer ano;
+    private Integer aid;
 
     private String name;
 
@@ -9,14 +9,16 @@ public class Admin {
 
     private String addr;
 
+    private String post;
+
     private String tel;
 
-    public Integer getAno() {
-        return ano;
+    public Integer getAid() {
+        return aid;
     }
 
-    public void setAno(Integer ano) {
-        this.ano = ano;
+    public void setAid(Integer aid) {
+        this.aid = aid;
     }
 
     public String getName() {
@@ -41,6 +43,14 @@ public class Admin {
 
     public void setAddr(String addr) {
         this.addr = addr == null ? null : addr.trim();
+    }
+
+    public String getPost() {
+        return post;
+    }
+
+    public void setPost(String post) {
+        this.post = post == null ? null : post.trim();
     }
 
     public String getTel() {

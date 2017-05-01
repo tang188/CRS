@@ -2,8 +2,8 @@ package com.tangzh.domain;
 
 import java.util.Date;
 
-public class News {
-    private Integer newsid;
+public class Notice {
+    private Integer nid;
 
     private String title;
 
@@ -13,12 +13,12 @@ public class News {
 
     private Integer aid;
 
-    public Integer getNewsid() {
-        return newsid;
+    public Integer getNid() {
+        return nid;
     }
 
-    public void setNewsid(Integer newsid) {
-        this.newsid = newsid;
+    public void setNid(Integer nid) {
+        this.nid = nid;
     }
 
     public String getTitle() {

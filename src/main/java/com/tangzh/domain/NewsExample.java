@@ -305,123 +305,123 @@ public class NewsExample {
             return (Criteria) this;
         }
 
-        public Criteria andTimeIsNull() {
-            addCriterion("time is null");
+        public Criteria andPubTimeIsNull() {
+            addCriterion("pub_time is null");
             return (Criteria) this;
         }
 
-        public Criteria andTimeIsNotNull() {
-            addCriterion("time is not null");
+        public Criteria andPubTimeIsNotNull() {
+            addCriterion("pub_time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTimeEqualTo(Date value) {
-            addCriterion("time =", value, "time");
+        public Criteria andPubTimeEqualTo(Date value) {
+            addCriterion("pub_time =", value, "pubTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotEqualTo(Date value) {
-            addCriterion("time <>", value, "time");
+        public Criteria andPubTimeNotEqualTo(Date value) {
+            addCriterion("pub_time <>", value, "pubTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeGreaterThan(Date value) {
-            addCriterion("time >", value, "time");
+        public Criteria andPubTimeGreaterThan(Date value) {
+            addCriterion("pub_time >", value, "pubTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("time >=", value, "time");
+        public Criteria andPubTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("pub_time >=", value, "pubTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeLessThan(Date value) {
-            addCriterion("time <", value, "time");
+        public Criteria andPubTimeLessThan(Date value) {
+            addCriterion("pub_time <", value, "pubTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeLessThanOrEqualTo(Date value) {
-            addCriterion("time <=", value, "time");
+        public Criteria andPubTimeLessThanOrEqualTo(Date value) {
+            addCriterion("pub_time <=", value, "pubTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeIn(List<Date> values) {
-            addCriterion("time in", values, "time");
+        public Criteria andPubTimeIn(List<Date> values) {
+            addCriterion("pub_time in", values, "pubTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotIn(List<Date> values) {
-            addCriterion("time not in", values, "time");
+        public Criteria andPubTimeNotIn(List<Date> values) {
+            addCriterion("pub_time not in", values, "pubTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeBetween(Date value1, Date value2) {
-            addCriterion("time between", value1, value2, "time");
+        public Criteria andPubTimeBetween(Date value1, Date value2) {
+            addCriterion("pub_time between", value1, value2, "pubTime");
             return (Criteria) this;
         }
 
-        public Criteria andTimeNotBetween(Date value1, Date value2) {
-            addCriterion("time not between", value1, value2, "time");
+        public Criteria andPubTimeNotBetween(Date value1, Date value2) {
+            addCriterion("pub_time not between", value1, value2, "pubTime");
             return (Criteria) this;
         }
 
-        public Criteria andAnoIsNull() {
-            addCriterion("ano is null");
+        public Criteria andAidIsNull() {
+            addCriterion("aid is null");
             return (Criteria) this;
         }
 
-        public Criteria andAnoIsNotNull() {
-            addCriterion("ano is not null");
+        public Criteria andAidIsNotNull() {
+            addCriterion("aid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAnoEqualTo(Integer value) {
-            addCriterion("ano =", value, "ano");
+        public Criteria andAidEqualTo(Integer value) {
+            addCriterion("aid =", value, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAnoNotEqualTo(Integer value) {
-            addCriterion("ano <>", value, "ano");
+        public Criteria andAidNotEqualTo(Integer value) {
+            addCriterion("aid <>", value, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAnoGreaterThan(Integer value) {
-            addCriterion("ano >", value, "ano");
+        public Criteria andAidGreaterThan(Integer value) {
+            addCriterion("aid >", value, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAnoGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ano >=", value, "ano");
+        public Criteria andAidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("aid >=", value, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAnoLessThan(Integer value) {
-            addCriterion("ano <", value, "ano");
+        public Criteria andAidLessThan(Integer value) {
+            addCriterion("aid <", value, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAnoLessThanOrEqualTo(Integer value) {
-            addCriterion("ano <=", value, "ano");
+        public Criteria andAidLessThanOrEqualTo(Integer value) {
+            addCriterion("aid <=", value, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAnoIn(List<Integer> values) {
-            addCriterion("ano in", values, "ano");
+        public Criteria andAidIn(List<Integer> values) {
+            addCriterion("aid in", values, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAnoNotIn(List<Integer> values) {
-            addCriterion("ano not in", values, "ano");
+        public Criteria andAidNotIn(List<Integer> values) {
+            addCriterion("aid not in", values, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAnoBetween(Integer value1, Integer value2) {
-            addCriterion("ano between", value1, value2, "ano");
+        public Criteria andAidBetween(Integer value1, Integer value2) {
+            addCriterion("aid between", value1, value2, "aid");
             return (Criteria) this;
         }
 
-        public Criteria andAnoNotBetween(Integer value1, Integer value2) {
-            addCriterion("ano not between", value1, value2, "ano");
+        public Criteria andAidNotBetween(Integer value1, Integer value2) {
+            addCriterion("aid not between", value1, value2, "aid");
             return (Criteria) this;
         }
     }

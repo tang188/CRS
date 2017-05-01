@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.tangzh.mapper.FormMapper" >
-  <resultMap id="BaseResultMap" type="com.tangzh.domain.Form" >
-    <id column="jno" property="jno" jdbcType="VARCHAR" />
+<mapper namespace="com.tangzh.mapper.NoticeMapper" >
+  <resultMap id="BaseResultMap" type="com.tangzh.domain.Notice" >
+    <id column="nid" property="nid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
-    <result column="time" property="time" jdbcType="TIMESTAMP" />
-    <result column="app_date" property="appDate" jdbcType="CHAR" />
-    <result column="app_time" property="appTime" jdbcType="TIME" />
-    <result column="sno" property="sno" jdbcType="INTEGER" />
-    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="pub_time" property="pubTime" jdbcType="TIMESTAMP" />
+    <result column="aid" property="aid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,15 +67,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    jno, content, time, app_date, app_time, sno, status
+    nid, title, content, pub_time, aid
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.FormExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.NoticeExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from form
+    from notice
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,108 +83,88 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from form
-    where jno = #{jno,jdbcType=VARCHAR}
+    from notice
+    where nid = #{nid,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from form
-    where jno = #{jno,jdbcType=VARCHAR}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from notice
+    where nid = #{nid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.tangzh.domain.FormExample" >
-    delete from form
+  <delete id="deleteByExample" parameterType="com.tangzh.domain.NoticeExample" >
+    delete from notice
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.tangzh.domain.Form" >
-    insert into form (jno, content, time, 
-      app_date, app_time, sno, status
-      )
-    values (#{jno,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP}, 
-      #{appDate,jdbcType=CHAR}, #{appTime,jdbcType=TIME}, #{sno,jdbcType=INTEGER}, #{status,jdbcType=CHAR}
-      )
+  <insert id="insert" parameterType="com.tangzh.domain.Notice" >
+    insert into notice (nid, title, content, 
+      pub_time, aid)
+    values (#{nid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{pubTime,jdbcType=TIMESTAMP}, #{aid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.tangzh.domain.Form" >
-    insert into form
+  <insert id="insertSelective" parameterType="com.tangzh.domain.Notice" >
+    insert into notice
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="jno != null" >
-        jno,
+      <if test="nid != null" >
+        nid,
+      </if>
+      <if test="title != null" >
+        title,
       </if>
       <if test="content != null" >
         content,
       </if>
-      <if test="time != null" >
-        time,
+      <if test="pubTime != null" >
+        pub_time,
       </if>
-      <if test="appDate != null" >
-        app_date,
-      </if>
-      <if test="appTime != null" >
-        app_time,
-      </if>
-      <if test="sno != null" >
-        sno,
-      </if>
-      <if test="status != null" >
-        status,
+      <if test="aid != null" >
+        aid,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="jno != null" >
-        #{jno,jdbcType=VARCHAR},
+      <if test="nid != null" >
+        #{nid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
       </if>
       <if test="content != null" >
         #{content,jdbcType=VARCHAR},
       </if>
-      <if test="time != null" >
-        #{time,jdbcType=TIMESTAMP},
+      <if test="pubTime != null" >
+        #{pubTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="appDate != null" >
-        #{appDate,jdbcType=CHAR},
-      </if>
-      <if test="appTime != null" >
-        #{appTime,jdbcType=TIME},
-      </if>
-      <if test="sno != null" >
-        #{sno,jdbcType=INTEGER},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=CHAR},
+      <if test="aid != null" >
+        #{aid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.tangzh.domain.FormExample" resultType="java.lang.Integer" >
-    select count(*) from form
+  <select id="countByExample" parameterType="com.tangzh.domain.NoticeExample" resultType="java.lang.Integer" >
+    select count(*) from notice
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update form
+    update notice
     <set >
-      <if test="record.jno != null" >
-        jno = #{record.jno,jdbcType=VARCHAR},
+      <if test="record.nid != null" >
+        nid = #{record.nid,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
       </if>
       <if test="record.content != null" >
         content = #{record.content,jdbcType=VARCHAR},
       </if>
-      <if test="record.time != null" >
-        time = #{record.time,jdbcType=TIMESTAMP},
+      <if test="record.pubTime != null" >
+        pub_time = #{record.pubTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.appDate != null" >
-        app_date = #{record.appDate,jdbcType=CHAR},
-      </if>
-      <if test="record.appTime != null" >
-        app_time = #{record.appTime,jdbcType=TIME},
-      </if>
-      <if test="record.sno != null" >
-        sno = #{record.sno,jdbcType=INTEGER},
-      </if>
-      <if test="record.status != null" >
-        status = #{record.status,jdbcType=CHAR},
+      <if test="record.aid != null" >
+        aid = #{record.aid,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -194,50 +172,40 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update form
-    set jno = #{record.jno,jdbcType=VARCHAR},
+    update notice
+    set nid = #{record.nid,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
-      time = #{record.time,jdbcType=TIMESTAMP},
-      app_date = #{record.appDate,jdbcType=CHAR},
-      app_time = #{record.appTime,jdbcType=TIME},
-      sno = #{record.sno,jdbcType=INTEGER},
-      status = #{record.status,jdbcType=CHAR}
+      pub_time = #{record.pubTime,jdbcType=TIMESTAMP},
+      aid = #{record.aid,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.tangzh.domain.Form" >
-    update form
+  <update id="updateByPrimaryKeySelective" parameterType="com.tangzh.domain.Notice" >
+    update notice
     <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
       <if test="content != null" >
         content = #{content,jdbcType=VARCHAR},
       </if>
-      <if test="time != null" >
-        time = #{time,jdbcType=TIMESTAMP},
+      <if test="pubTime != null" >
+        pub_time = #{pubTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="appDate != null" >
-        app_date = #{appDate,jdbcType=CHAR},
-      </if>
-      <if test="appTime != null" >
-        app_time = #{appTime,jdbcType=TIME},
-      </if>
-      <if test="sno != null" >
-        sno = #{sno,jdbcType=INTEGER},
-      </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=CHAR},
+      <if test="aid != null" >
+        aid = #{aid,jdbcType=INTEGER},
       </if>
     </set>
-    where jno = #{jno,jdbcType=VARCHAR}
+    where nid = #{nid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.Form" >
-    update form
-    set content = #{content,jdbcType=VARCHAR},
-      time = #{time,jdbcType=TIMESTAMP},
-      app_date = #{appDate,jdbcType=CHAR},
-      app_time = #{appTime,jdbcType=TIME},
-      sno = #{sno,jdbcType=INTEGER},
-      status = #{status,jdbcType=CHAR}
-    where jno = #{jno,jdbcType=VARCHAR}
+  <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.Notice" >
+    update notice
+    set title = #{title,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      pub_time = #{pubTime,jdbcType=TIMESTAMP},
+      aid = #{aid,jdbcType=INTEGER}
+    where nid = #{nid,jdbcType=INTEGER}
   </update>
 </mapper>

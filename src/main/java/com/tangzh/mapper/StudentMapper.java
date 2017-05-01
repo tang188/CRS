@@ -10,7 +10,7 @@ public interface StudentMapper {
 
     int deleteByExample(StudentExample example);
 
-    int deleteByPrimaryKey(Integer sno);
+    int deleteByPrimaryKey(Integer sid);
 
     int insert(Student record);
 
@@ -18,7 +18,7 @@ public interface StudentMapper {
 
     List<Student> selectByExample(StudentExample example);
 
-    Student selectByPrimaryKey(Integer sno);
+    Student selectByPrimaryKey(Integer sid);
 
     int updateByExampleSelective(@Param("record") Student record, @Param("example") StudentExample example);
 

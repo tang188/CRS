@@ -67,7 +67,7 @@ public class ITbAdminServiceImpl implements ITbAdminService{
 	public Admin login(int ano, String pwd) {
 		AdminExample adminExample=new AdminExample();
 		Criteria cr=adminExample.createCriteria();
-		cr.andAnoEqualTo(ano);
+		cr.andAidEqualTo(ano);
 		List<Admin> admins= adminMapper.selectByExample(adminExample);
 		if(!admins.isEmpty()){
 			Admin admin=admins.get(0);

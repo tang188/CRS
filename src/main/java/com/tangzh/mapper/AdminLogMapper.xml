@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.tangzh.mapper.RepairMapper" >
-  <resultMap id="BaseResultMap" type="com.tangzh.domain.Repair" >
-    <id column="r_id" property="rId" jdbcType="INTEGER" />
-    <result column="rtime" property="rtime" jdbcType="TIMESTAMP" />
-    <result column="worker" property="worker" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="CHAR" />
-    <result column="bid" property="bid" jdbcType="INTEGER" />
+<mapper namespace="com.tangzh.mapper.AdminLogMapper" >
+  <resultMap id="BaseResultMap" type="com.tangzh.domain.AdminLog" >
+    <id column="lid" property="lid" jdbcType="INTEGER" />
+    <result column="aid" property="aid" jdbcType="INTEGER" />
+    <result column="action" property="action" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,15 +66,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    r_id, rtime, worker, status, bid
+    lid, aid, action, time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.RepairExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.AdminLogExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from repair
+    from admin_log
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,85 +85,76 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from repair
-    where r_id = #{rId,jdbcType=INTEGER}
+    from admin_log
+    where lid = #{lid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from repair
-    where r_id = #{rId,jdbcType=INTEGER}
+    delete from admin_log
+    where lid = #{lid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.tangzh.domain.RepairExample" >
-    delete from repair
+  <delete id="deleteByExample" parameterType="com.tangzh.domain.AdminLogExample" >
+    delete from admin_log
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.tangzh.domain.Repair" >
-    insert into repair (r_id, rtime, worker, 
-      status, bid)
-    values (#{rId,jdbcType=INTEGER}, #{rtime,jdbcType=TIMESTAMP}, #{worker,jdbcType=VARCHAR}, 
-      #{status,jdbcType=CHAR}, #{bid,jdbcType=INTEGER})
+  <insert id="insert" parameterType="com.tangzh.domain.AdminLog" >
+    insert into admin_log (lid, aid, action, 
+      time)
+    values (#{lid,jdbcType=INTEGER}, #{aid,jdbcType=INTEGER}, #{action,jdbcType=VARCHAR}, 
+      #{time,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.tangzh.domain.Repair" >
-    insert into repair
+  <insert id="insertSelective" parameterType="com.tangzh.domain.AdminLog" >
+    insert into admin_log
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="rId != null" >
-        r_id,
+      <if test="lid != null" >
+        lid,
       </if>
-      <if test="rtime != null" >
-        rtime,
+      <if test="aid != null" >
+        aid,
       </if>
-      <if test="worker != null" >
-        worker,
+      <if test="action != null" >
+        action,
       </if>
-      <if test="status != null" >
-        status,
-      </if>
-      <if test="bid != null" >
-        bid,
+      <if test="time != null" >
+        time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="rId != null" >
-        #{rId,jdbcType=INTEGER},
+      <if test="lid != null" >
+        #{lid,jdbcType=INTEGER},
       </if>
-      <if test="rtime != null" >
-        #{rtime,jdbcType=TIMESTAMP},
+      <if test="aid != null" >
+        #{aid,jdbcType=INTEGER},
       </if>
-      <if test="worker != null" >
-        #{worker,jdbcType=VARCHAR},
+      <if test="action != null" >
+        #{action,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        #{status,jdbcType=CHAR},
-      </if>
-      <if test="bid != null" >
-        #{bid,jdbcType=INTEGER},
+      <if test="time != null" >
+        #{time,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.tangzh.domain.RepairExample" resultType="java.lang.Integer" >
-    select count(*) from repair
+  <select id="countByExample" parameterType="com.tangzh.domain.AdminLogExample" resultType="java.lang.Integer" >
+    select count(*) from admin_log
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update repair
+    update admin_log
     <set >
-      <if test="record.rId != null" >
-        r_id = #{record.rId,jdbcType=INTEGER},
+      <if test="record.lid != null" >
+        lid = #{record.lid,jdbcType=INTEGER},
       </if>
-      <if test="record.rtime != null" >
-        rtime = #{record.rtime,jdbcType=TIMESTAMP},
+      <if test="record.aid != null" >
+        aid = #{record.aid,jdbcType=INTEGER},
       </if>
-      <if test="record.worker != null" >
-        worker = #{record.worker,jdbcType=VARCHAR},
+      <if test="record.action != null" >
+        action = #{record.action,jdbcType=VARCHAR},
       </if>
-      <if test="record.status != null" >
-        status = #{record.status,jdbcType=CHAR},
-      </if>
-      <if test="record.bid != null" >
-        bid = #{record.bid,jdbcType=INTEGER},
+      <if test="record.time != null" >
+        time = #{record.time,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -172,40 +162,35 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update repair
-    set r_id = #{record.rId,jdbcType=INTEGER},
-      rtime = #{record.rtime,jdbcType=TIMESTAMP},
-      worker = #{record.worker,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=CHAR},
-      bid = #{record.bid,jdbcType=INTEGER}
+    update admin_log
+    set lid = #{record.lid,jdbcType=INTEGER},
+      aid = #{record.aid,jdbcType=INTEGER},
+      action = #{record.action,jdbcType=VARCHAR},
+      time = #{record.time,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.tangzh.domain.Repair" >
-    update repair
+  <update id="updateByPrimaryKeySelective" parameterType="com.tangzh.domain.AdminLog" >
+    update admin_log
     <set >
-      <if test="rtime != null" >
-        rtime = #{rtime,jdbcType=TIMESTAMP},
+      <if test="aid != null" >
+        aid = #{aid,jdbcType=INTEGER},
       </if>
-      <if test="worker != null" >
-        worker = #{worker,jdbcType=VARCHAR},
+      <if test="action != null" >
+        action = #{action,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=CHAR},
-      </if>
-      <if test="bid != null" >
-        bid = #{bid,jdbcType=INTEGER},
+      <if test="time != null" >
+        time = #{time,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where r_id = #{rId,jdbcType=INTEGER}
+    where lid = #{lid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.Repair" >
-    update repair
-    set rtime = #{rtime,jdbcType=TIMESTAMP},
-      worker = #{worker,jdbcType=VARCHAR},
-      status = #{status,jdbcType=CHAR},
-      bid = #{bid,jdbcType=INTEGER}
-    where r_id = #{rId,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.AdminLog" >
+    update admin_log
+    set aid = #{aid,jdbcType=INTEGER},
+      action = #{action,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP}
+    where lid = #{lid,jdbcType=INTEGER}
   </update>
 </mapper>

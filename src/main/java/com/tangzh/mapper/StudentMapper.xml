@@ -2,13 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.tangzh.mapper.StudentMapper" >
   <resultMap id="BaseResultMap" type="com.tangzh.domain.Student" >
-    <id column="sno" property="sno" jdbcType="INTEGER" />
+    <id column="sid" property="sid" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="sex" property="sex" jdbcType="CHAR" />
     <result column="age" property="age" jdbcType="INTEGER" />
     <result column="dept" property="dept" jdbcType="VARCHAR" />
     <result column="specialty" property="specialty" jdbcType="VARCHAR" />
+    <result column="class_no" property="classNo" jdbcType="VARCHAR" />
     <result column="addr" property="addr" jdbcType="VARCHAR" />
     <result column="tel" property="tel" jdbcType="VARCHAR" />
   </resultMap>
@@ -71,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    sno, name, password, sex, age, dept, specialty, addr, tel
+    sid, name, password, sex, age, dept, specialty, class_no, addr, tel
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.StudentExample" >
     select
@@ -91,11 +92,11 @@
     select 
     <include refid="Base_Column_List" />
     from student
-    where sno = #{sno,jdbcType=INTEGER}
+    where sid = #{sid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from student
-    where sno = #{sno,jdbcType=INTEGER}
+    where sid = #{sid,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.tangzh.domain.StudentExample" >
     delete from student
@@ -104,18 +105,18 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.tangzh.domain.Student" >
-    insert into student (sno, name, password, 
+    insert into student (sid, name, password, 
       sex, age, dept, specialty, 
-      addr, tel)
-    values (#{sno,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      class_no, addr, tel)
+    values (#{sid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{sex,jdbcType=CHAR}, #{age,jdbcType=INTEGER}, #{dept,jdbcType=VARCHAR}, #{specialty,jdbcType=VARCHAR}, 
-      #{addr,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR})
+      #{classNo,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.tangzh.domain.Student" >
     insert into student
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="sno != null" >
-        sno,
+      <if test="sid != null" >
+        sid,
       </if>
       <if test="name != null" >
         name,
@@ -135,6 +136,9 @@
       <if test="specialty != null" >
         specialty,
       </if>
+      <if test="classNo != null" >
+        class_no,
+      </if>
       <if test="addr != null" >
         addr,
       </if>
@@ -143,8 +147,8 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="sno != null" >
-        #{sno,jdbcType=INTEGER},
+      <if test="sid != null" >
+        #{sid,jdbcType=INTEGER},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
@@ -164,6 +168,9 @@
       <if test="specialty != null" >
         #{specialty,jdbcType=VARCHAR},
       </if>
+      <if test="classNo != null" >
+        #{classNo,jdbcType=VARCHAR},
+      </if>
       <if test="addr != null" >
         #{addr,jdbcType=VARCHAR},
       </if>
@@ -181,8 +188,8 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update student
     <set >
-      <if test="record.sno != null" >
-        sno = #{record.sno,jdbcType=INTEGER},
+      <if test="record.sid != null" >
+        sid = #{record.sid,jdbcType=INTEGER},
       </if>
       <if test="record.name != null" >
         name = #{record.name,jdbcType=VARCHAR},
@@ -202,6 +209,9 @@
       <if test="record.specialty != null" >
         specialty = #{record.specialty,jdbcType=VARCHAR},
       </if>
+      <if test="record.classNo != null" >
+        class_no = #{record.classNo,jdbcType=VARCHAR},
+      </if>
       <if test="record.addr != null" >
         addr = #{record.addr,jdbcType=VARCHAR},
       </if>
@@ -215,13 +225,14 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update student
-    set sno = #{record.sno,jdbcType=INTEGER},
+    set sid = #{record.sid,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
       sex = #{record.sex,jdbcType=CHAR},
       age = #{record.age,jdbcType=INTEGER},
       dept = #{record.dept,jdbcType=VARCHAR},
       specialty = #{record.specialty,jdbcType=VARCHAR},
+      class_no = #{record.classNo,jdbcType=VARCHAR},
       addr = #{record.addr,jdbcType=VARCHAR},
       tel = #{record.tel,jdbcType=VARCHAR}
     <if test="_parameter != null" >
@@ -249,6 +260,9 @@
       <if test="specialty != null" >
         specialty = #{specialty,jdbcType=VARCHAR},
       </if>
+      <if test="classNo != null" >
+        class_no = #{classNo,jdbcType=VARCHAR},
+      </if>
       <if test="addr != null" >
         addr = #{addr,jdbcType=VARCHAR},
       </if>
@@ -256,7 +270,7 @@
         tel = #{tel,jdbcType=VARCHAR},
       </if>
     </set>
-    where sno = #{sno,jdbcType=INTEGER}
+    where sid = #{sid,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.Student" >
     update student
@@ -266,8 +280,9 @@
       age = #{age,jdbcType=INTEGER},
       dept = #{dept,jdbcType=VARCHAR},
       specialty = #{specialty,jdbcType=VARCHAR},
+      class_no = #{classNo,jdbcType=VARCHAR},
       addr = #{addr,jdbcType=VARCHAR},
       tel = #{tel,jdbcType=VARCHAR}
-    where sno = #{sno,jdbcType=INTEGER}
+    where sid = #{sid,jdbcType=INTEGER}
   </update>
 </mapper>

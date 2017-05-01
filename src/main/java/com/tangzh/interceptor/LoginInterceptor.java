@@ -49,7 +49,7 @@ public class LoginInterceptor implements HandlerInterceptor{
 			return true;
 		}
 		//重新跳转回登录界面。
-		response.sendRedirect(request.getContextPath()+"page/login.do");
+		response.sendRedirect(request.getContextPath()+"pages/login.do");
 		return false;
 	}
 	

@@ -7,9 +7,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<link rel="stylesheet" href="<c:url value='/css/login.css'/>">		
-		<script type="text/javascript" src="<c:url value='/js/login.js'/>"></script>
+<meta http-equiv="keywords" content="校园维修系统">
+<meta http-equiv="description" content="校园维修系统">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="<c:url value='/css/login.css'/>">
+<script type="text/javascript" src="<c:url value='/js/login.js'/>"></script>
 <title>Login</title>
 </head>
 <body>
@@ -32,7 +35,7 @@
 							</div>
 							<div class="col-xs-6">
 								<input type="text" class="form-control" id="registerInputEmail"
-									 name="email">
+									name="email">
 							</div>
 						</div>
 						<div class="form-group">
@@ -47,14 +50,13 @@
 						<div class="radio col-xs-3 col-xs-offset-4">
 							<label> <input type="radio" name="optionsRadios"
 								id="optionsRadios1" value="1" checked> 学生&nbsp;&nbsp;
-							</label> 
-							<label> <input type="radio" name="optionsRadios"
+							</label> <label> <input type="radio" name="optionsRadios"
 								id="optionsRadios2" value="2"> 管理员
 							</label> <span style="color: red">${msg }</span>
 						</div>
 						<div class="col-xs-4 col-xs-offset-4 nologin">
-							<a href="<c:url value='/page/findPassword.do'/>">忘记密码</a> 
-							<a href="<c:url value='/page/register.do'/>"
+							<a href="<c:url value='/page/findPassword.do'/>">忘记密码</a> <a
+								href="<c:url value='/page/register.do'/>"
 								class="col-xs-offset-3">快速注册</a>
 						</div>
 						<button class="btn btn-default col-xs-3 col-xs-offset-5"
@@ -63,6 +65,6 @@
 				</div>
 			</div>
 		</div>
-		</div>
+	</div>
 </body>
 </html>

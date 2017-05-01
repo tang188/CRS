@@ -58,10 +58,10 @@ public class ITbStudentServiceImpl implements ITbStudentService{
 	}
 
 	@Override
-	public Student login(int sno, String pwd) {
+	public Student login(int sid, String pwd) {
 		StudentExample example=new StudentExample();
 		com.tangzh.domain.StudentExample.Criteria cr=example.createCriteria();
-		cr.andSnoEqualTo(sno);
+		cr.andSidEqualTo(sid);
 		List<Student> list=studentmapper.selectByExample(example);
 		if(!list.isEmpty()){
 			Student student=list.get(0);

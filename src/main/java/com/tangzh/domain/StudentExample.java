@@ -104,63 +104,63 @@ public class StudentExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andSnoIsNull() {
-            addCriterion("sno is null");
+        public Criteria andSidIsNull() {
+            addCriterion("sid is null");
             return (Criteria) this;
         }
 
-        public Criteria andSnoIsNotNull() {
-            addCriterion("sno is not null");
+        public Criteria andSidIsNotNull() {
+            addCriterion("sid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSnoEqualTo(Integer value) {
-            addCriterion("sno =", value, "sno");
+        public Criteria andSidEqualTo(Integer value) {
+            addCriterion("sid =", value, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andSnoNotEqualTo(Integer value) {
-            addCriterion("sno <>", value, "sno");
+        public Criteria andSidNotEqualTo(Integer value) {
+            addCriterion("sid <>", value, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andSnoGreaterThan(Integer value) {
-            addCriterion("sno >", value, "sno");
+        public Criteria andSidGreaterThan(Integer value) {
+            addCriterion("sid >", value, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andSnoGreaterThanOrEqualTo(Integer value) {
-            addCriterion("sno >=", value, "sno");
+        public Criteria andSidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("sid >=", value, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andSnoLessThan(Integer value) {
-            addCriterion("sno <", value, "sno");
+        public Criteria andSidLessThan(Integer value) {
+            addCriterion("sid <", value, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andSnoLessThanOrEqualTo(Integer value) {
-            addCriterion("sno <=", value, "sno");
+        public Criteria andSidLessThanOrEqualTo(Integer value) {
+            addCriterion("sid <=", value, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andSnoIn(List<Integer> values) {
-            addCriterion("sno in", values, "sno");
+        public Criteria andSidIn(List<Integer> values) {
+            addCriterion("sid in", values, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andSnoNotIn(List<Integer> values) {
-            addCriterion("sno not in", values, "sno");
+        public Criteria andSidNotIn(List<Integer> values) {
+            addCriterion("sid not in", values, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andSnoBetween(Integer value1, Integer value2) {
-            addCriterion("sno between", value1, value2, "sno");
+        public Criteria andSidBetween(Integer value1, Integer value2) {
+            addCriterion("sid between", value1, value2, "sid");
             return (Criteria) this;
         }
 
-        public Criteria andSnoNotBetween(Integer value1, Integer value2) {
-            addCriterion("sno not between", value1, value2, "sno");
+        public Criteria andSidNotBetween(Integer value1, Integer value2) {
+            addCriterion("sid not between", value1, value2, "sid");
             return (Criteria) this;
         }
 
@@ -571,6 +571,76 @@ public class StudentExample {
 
         public Criteria andSpecialtyNotBetween(String value1, String value2) {
             addCriterion("specialty not between", value1, value2, "specialty");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoIsNull() {
+            addCriterion("class_no is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoIsNotNull() {
+            addCriterion("class_no is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoEqualTo(String value) {
+            addCriterion("class_no =", value, "classNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoNotEqualTo(String value) {
+            addCriterion("class_no <>", value, "classNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoGreaterThan(String value) {
+            addCriterion("class_no >", value, "classNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoGreaterThanOrEqualTo(String value) {
+            addCriterion("class_no >=", value, "classNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoLessThan(String value) {
+            addCriterion("class_no <", value, "classNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoLessThanOrEqualTo(String value) {
+            addCriterion("class_no <=", value, "classNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoLike(String value) {
+            addCriterion("class_no like", value, "classNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoNotLike(String value) {
+            addCriterion("class_no not like", value, "classNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoIn(List<String> values) {
+            addCriterion("class_no in", values, "classNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoNotIn(List<String> values) {
+            addCriterion("class_no not in", values, "classNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoBetween(String value1, String value2) {
+            addCriterion("class_no between", value1, value2, "classNo");
+            return (Criteria) this;
+        }
+
+        public Criteria andClassNoNotBetween(String value1, String value2) {
+            addCriterion("class_no not between", value1, value2, "classNo");
             return (Criteria) this;
         }
 

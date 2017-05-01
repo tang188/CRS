@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.tangzh.mapper.AdminMapper" >
-  <resultMap id="BaseResultMap" type="com.tangzh.domain.Admin" >
-    <id column="aid" property="aid" jdbcType="INTEGER" />
+<mapper namespace="com.tangzh.mapper.WorkerMapper" >
+  <resultMap id="BaseResultMap" type="com.tangzh.domain.Worker" >
+    <id column="wid" property="wid" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="CHAR" />
     <result column="addr" property="addr" jdbcType="VARCHAR" />
-    <result column="post" property="post" jdbcType="VARCHAR" />
     <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="count" property="count" jdbcType="INTEGER" />
+    <result column="scroe" property="scroe" jdbcType="REAL" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -68,15 +69,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    aid, name, password, addr, post, tel
+    wid, name, sex, addr, tel, count, scroe
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.AdminExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.WorkerExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from admin
+    from worker
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,94 +88,105 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from admin
-    where aid = #{aid,jdbcType=INTEGER}
+    from worker
+    where wid = #{wid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from admin
-    where aid = #{aid,jdbcType=INTEGER}
+    delete from worker
+    where wid = #{wid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.tangzh.domain.AdminExample" >
-    delete from admin
+  <delete id="deleteByExample" parameterType="com.tangzh.domain.WorkerExample" >
+    delete from worker
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.tangzh.domain.Admin" >
-    insert into admin (aid, name, password, 
-      addr, post, tel)
-    values (#{aid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{addr,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.tangzh.domain.Worker" >
+    insert into worker (wid, name, sex, 
+      addr, tel, count, scroe
+      )
+    values (#{wid,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=CHAR}, 
+      #{addr,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, #{scroe,jdbcType=REAL}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="com.tangzh.domain.Admin" >
-    insert into admin
+  <insert id="insertSelective" parameterType="com.tangzh.domain.Worker" >
+    insert into worker
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="aid != null" >
-        aid,
+      <if test="wid != null" >
+        wid,
       </if>
       <if test="name != null" >
         name,
       </if>
-      <if test="password != null" >
-        password,
+      <if test="sex != null" >
+        sex,
       </if>
       <if test="addr != null" >
         addr,
       </if>
-      <if test="post != null" >
-        post,
-      </if>
       <if test="tel != null" >
         tel,
       </if>
+      <if test="count != null" >
+        count,
+      </if>
+      <if test="scroe != null" >
+        scroe,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="aid != null" >
-        #{aid,jdbcType=INTEGER},
+      <if test="wid != null" >
+        #{wid,jdbcType=INTEGER},
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
+      <if test="sex != null" >
+        #{sex,jdbcType=CHAR},
       </if>
       <if test="addr != null" >
         #{addr,jdbcType=VARCHAR},
       </if>
-      <if test="post != null" >
-        #{post,jdbcType=VARCHAR},
-      </if>
       <if test="tel != null" >
         #{tel,jdbcType=VARCHAR},
       </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="scroe != null" >
+        #{scroe,jdbcType=REAL},
+      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.tangzh.domain.AdminExample" resultType="java.lang.Integer" >
-    select count(*) from admin
+  <select id="countByExample" parameterType="com.tangzh.domain.WorkerExample" resultType="java.lang.Integer" >
+    select count(*) from worker
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update admin
+    update worker
     <set >
-      <if test="record.aid != null" >
-        aid = #{record.aid,jdbcType=INTEGER},
+      <if test="record.wid != null" >
+        wid = #{record.wid,jdbcType=INTEGER},
       </if>
       <if test="record.name != null" >
         name = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.password != null" >
-        password = #{record.password,jdbcType=VARCHAR},
+      <if test="record.sex != null" >
+        sex = #{record.sex,jdbcType=CHAR},
       </if>
       <if test="record.addr != null" >
         addr = #{record.addr,jdbcType=VARCHAR},
       </if>
-      <if test="record.post != null" >
-        post = #{record.post,jdbcType=VARCHAR},
-      </if>
       <if test="record.tel != null" >
         tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.count != null" >
+        count = #{record.count,jdbcType=INTEGER},
+      </if>
+      <if test="record.scroe != null" >
+        scroe = #{record.scroe,jdbcType=REAL},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -182,45 +194,50 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update admin
-    set aid = #{record.aid,jdbcType=INTEGER},
+    update worker
+    set wid = #{record.wid,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR},
+      sex = #{record.sex,jdbcType=CHAR},
       addr = #{record.addr,jdbcType=VARCHAR},
-      post = #{record.post,jdbcType=VARCHAR},
-      tel = #{record.tel,jdbcType=VARCHAR}
+      tel = #{record.tel,jdbcType=VARCHAR},
+      count = #{record.count,jdbcType=INTEGER},
+      scroe = #{record.scroe,jdbcType=REAL}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.tangzh.domain.Admin" >
-    update admin
+  <update id="updateByPrimaryKeySelective" parameterType="com.tangzh.domain.Worker" >
+    update worker
     <set >
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=VARCHAR},
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=CHAR},
       </if>
       <if test="addr != null" >
         addr = #{addr,jdbcType=VARCHAR},
       </if>
-      <if test="post != null" >
-        post = #{post,jdbcType=VARCHAR},
-      </if>
       <if test="tel != null" >
         tel = #{tel,jdbcType=VARCHAR},
       </if>
+      <if test="count != null" >
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="scroe != null" >
+        scroe = #{scroe,jdbcType=REAL},
+      </if>
     </set>
-    where aid = #{aid,jdbcType=INTEGER}
+    where wid = #{wid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.Admin" >
-    update admin
+  <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.Worker" >
+    update worker
     set name = #{name,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=CHAR},
       addr = #{addr,jdbcType=VARCHAR},
-      post = #{post,jdbcType=VARCHAR},
-      tel = #{tel,jdbcType=VARCHAR}
-    where aid = #{aid,jdbcType=INTEGER}
+      tel = #{tel,jdbcType=VARCHAR},
+      count = #{count,jdbcType=INTEGER},
+      scroe = #{scroe,jdbcType=REAL}
+    where wid = #{wid,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -3,38 +3,38 @@ package com.tangzh.domain;
 import java.util.Date;
 
 public class Repair {
-    private Integer id;
+    private Integer rId;
 
-    private Integer ano;
+    private Date rtime;
 
-    private Integer jno;
+    private String worker;
 
     private String status;
 
-    private Date time;
+    private Integer bid;
 
-    public Integer getId() {
-        return id;
+    public Integer getrId() {
+        return rId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setrId(Integer rId) {
+        this.rId = rId;
     }
 
-    public Integer getAno() {
-        return ano;
+    public Date getRtime() {
+        return rtime;
     }
 
-    public void setAno(Integer ano) {
-        this.ano = ano;
+    public void setRtime(Date rtime) {
+        this.rtime = rtime;
     }
 
-    public Integer getJno() {
-        return jno;
+    public String getWorker() {
+        return worker;
     }
 
-    public void setJno(Integer jno) {
-        this.jno = jno;
+    public void setWorker(String worker) {
+        this.worker = worker == null ? null : worker.trim();
     }
 
     public String getStatus() {
@@ -45,11 +45,11 @@ public class Repair {
         this.status = status == null ? null : status.trim();
     }
 
-    public Date getTime() {
-        return time;
+    public Integer getBid() {
+        return bid;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public void setBid(Integer bid) {
+        this.bid = bid;
     }
 }

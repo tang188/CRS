@@ -10,7 +10,7 @@ public interface RepairMapper {
 
     int deleteByExample(RepairExample example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Integer rId);
 
     int insert(Repair record);
 
@@ -18,7 +18,7 @@ public interface RepairMapper {
 
     List<Repair> selectByExample(RepairExample example);
 
-    Repair selectByPrimaryKey(Integer id);
+    Repair selectByPrimaryKey(Integer rId);
 
     int updateByExampleSelective(@Param("record") Repair record, @Param("example") RepairExample example);
 
