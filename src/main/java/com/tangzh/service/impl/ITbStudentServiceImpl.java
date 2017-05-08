@@ -71,5 +71,10 @@ public class ITbStudentServiceImpl implements ITbStudentService{
 		}
 		return null;
 	}
+
+	@Override
+	public int insertSelective(Student record) {		
+		return studentmapper.insertSelective(record);
+	}
 	
 }

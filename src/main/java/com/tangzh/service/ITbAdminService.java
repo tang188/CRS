@@ -35,6 +35,8 @@ public interface ITbAdminService {
 	 * @return
 	 */
 	int insert(Admin admin);
+	
+	int insertSelective(Admin record);
 	/**
 	 * 
 	 * @param ano

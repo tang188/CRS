@@ -21,6 +21,7 @@ public interface ITbStudentService {
 	 */
 	int insert(Student stu);
 	
+	int insertSelective(Student record);
 	/**
 	 * select by sno
 	 * @param sno

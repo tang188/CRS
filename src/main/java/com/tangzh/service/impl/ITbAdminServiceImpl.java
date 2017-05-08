@@ -77,5 +77,11 @@ public class ITbAdminServiceImpl implements ITbAdminService{
 		}
 		return null;
 	}
+
+	@Override
+	public int insertSelective(Admin record) {
+
+		return adminMapper.insertSelective(record);
+	}
 	
 }
