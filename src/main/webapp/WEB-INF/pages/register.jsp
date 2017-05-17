@@ -13,7 +13,7 @@
 		<link rel="shortcut icon" href="<c:url value='/images/favicon.ico'/>" type="image/x-icon"/>
 		
 		<link rel="stylesheet" href="<c:url value='/css/register.css'/>">		
-		<%-- <script type="text/javascript" src="<c:url value='/js/模板.js'/>"></script> --%>
+		<script type="text/javascript" src="<c:url value='/js/register.js'/>"></script>
 	</head>
 	<body >
 	<div class="modal-dialog" >

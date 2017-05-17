@@ -24,13 +24,24 @@ public class RegisterController {
 	
 	@RequestMapping("/register.do")
 	public String doRegister(HttpServletRequest request, Model model) {
-		int account=Integer.parseInt(request.getParameter("account"));
-		String password=request.getParameter("password");
-		String password1=request.getParameter("password1");
-		String name=request.getParameter("name");
-		String tel=request.getParameter("tel");
-		int register_status=Integer.parseInt(request.getParameter("register_radios"));
+		int account;
+		String password;
+		String password1;
+		String name;
+		String tel;
 		String error = "";
+		try {
+			account = Integer.parseInt(request.getParameter("account"));
+			password = request.getParameter("password");
+			password1 = request.getParameter("password1");
+			name = request.getParameter("name");
+			tel = request.getParameter("tel");
+		} catch (NumberFormatException e1) {			
+			error="请正确输入信息";
+			model.addAttribute("message", error);
+			return "register";
+		}
+		int register_status=Integer.parseInt(request.getParameter("register_radios"));		
 		
 		//验证码校验。
 		String session_verifiedCode = (String) request.getSession().getAttribute("session_verifiedCode");

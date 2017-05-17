@@ -1,49 +1,4 @@
 @CHARSET "UTF-8";
-body{
-	background: url(/images/bg.jpg) no-repeat;
-}
-
-*{
-	margin:0;padding:0;
-}
-
-html{
-	_padding:100px 0 100px 0;
-	_overflow:hidden;
-}
-
-
-html,body{
-	height:100%;
-	width: 100%;
-}
-
-.img-circle{
-	height:124px;
-	width:124px;
-}
-
-.bg-info{
-	height:200px;
-	background: url(images/bg.jpg) repeat-x;
-}
-
-.pic{
-	position: absolute;
-	top:40px;left:5%;
-}
-
-.LoginRegist{
-	position: absolute;
-	top:0;right:5%;
-}
-
-.LoginRegist a{
-	text-decoration: none;
-	font-size:20px;
-	color:#222;
-	font-weight: bolder;
-}
 
 .body{
 	width:100%;
@@ -54,26 +9,3 @@ html,body{
 	_height:100%;
 }
 
-.menus{
-	width:20%;
-	float:left;
-}
-
-.mainbody{
-	width:80%;
-	height: auto;
-	background-color:green;
-	float:right;
-}
-
-.main-footer{
-	width:100%;
-	height:auto;
-	background-color: #cccbdd;
-	position: fixed;
-	bottom: 0
-}
-
-#copyright p{
-	font-weight: bolder;
-}

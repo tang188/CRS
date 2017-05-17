@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+.main-footer{
+	width:100%;
+	height:auto;
+	background-color: #cccbdd;
+	position: fixed;
+	bottom: 0
+}
+
+#copyright p{
+	font-weight: bolder;
+}
