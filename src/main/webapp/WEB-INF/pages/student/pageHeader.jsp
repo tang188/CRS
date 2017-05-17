@@ -6,7 +6,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 
 <link rel="stylesheet" href="<c:url value='/css/pageHeader.css'/>">	
-<script type="text/javascript" src="<c:url value='/js/showTime.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/js/pageHeader.js'/>"></script>
 
 <style>
 .system{
@@ -15,11 +15,12 @@
 	bottom: 10%;	
 }
 
-h1{
-	font-size:80px;
+#mTitle{
+	font-size:5rem;
 	font-weight:bolder;
 }
 </style>
+ 
 
 <div class="main-header">
   <div class="container-fuild bg-info">
@@ -28,7 +29,7 @@ h1{
     </div>
     
     <div class="system">
-    	<h1>校园修缮系统</h1>
+    	<div id="mTitle">校 园 修 缮 系 统</div>
     </div>
     
     <div class="LoginRegist">
