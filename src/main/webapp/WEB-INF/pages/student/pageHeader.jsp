@@ -6,6 +6,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 
 <link rel="stylesheet" href="<c:url value='/css/pageHeader.css'/>">	
+<script type="text/javascript" src="<c:url value='/js/showTime.js'/>"></script>
 
 <style>
 .system{
@@ -48,6 +49,9 @@ h1{
 			<%		
 				}
 			%>
+			<br>
+			<label id="timeShow">
+			</label>
     </div>
   </div>
 </div>
