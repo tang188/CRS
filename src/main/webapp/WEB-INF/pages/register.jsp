@@ -62,14 +62,7 @@
 									id="registerInputPasswordAgain" name="password1">
 							</div>
 						</div>
-						<div class="form-group">
-							<div class="col-xs-1 col-xs-offset-3 text-right">
-								
-							</div>
-							<div class="col-xs-6">
-								<span style="color: red">${message}</span>			
-							</div>
-						</div>
+
 						<div class="form-group">
 							<div class="col-xs-1 col-xs-offset-3 text-right">
 								
@@ -90,6 +83,15 @@
 						<div class="col-xs-2"  style="padding-left:0">
 							<img id="verifiedCodeImg" src="<c:url value='/page/verifiedCode.do'/>">
 						</div>
+						</div>
+						
+						<div class="form-group">
+							<div class="col-xs-1 col-xs-offset-3 text-right">
+								
+							</div>
+							<div class="col-xs-6">
+								<span style="color: red">${message}</span>			
+							</div>
 						</div>
 						
 						<div class="radio col-xs-4 col-xs-offset-4">

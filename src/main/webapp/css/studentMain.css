@@ -29,7 +29,6 @@ html,body{
 }
 
 .pic{
-	background:url(/images/logo.png) no-repeat;
 	position: absolute;
 	top:40px;left:5%;
 }

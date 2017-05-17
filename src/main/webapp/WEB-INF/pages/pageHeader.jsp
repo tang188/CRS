@@ -1,36 +1,41 @@
+<%@page import="com.tangzh.domain.Admin"%>
+<%@page import="com.tangzh.domain.Student"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/pages/common.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
-<!DOCTYPE html>
 
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="keywords" content="校园维修系统">
-<meta http-equiv="description" content="校园维修系统">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="<c:url value='/css/studentMain.css'/>">
-<script type="text/javascript" src="<c:url value='/js/login.js'/>"></script>
-<title>校园修缮系统</title>
-</head>
-<body>
-<%-- <div class="main-header">
+<div class="main-header">
   <div class="container-fuild bg-info">
     <div class="pic">
       <img src="/images/logo.png" alt="logo..." class="img-circle">
     </div>
+    
+    <div >
+    	<h1>校园修缮系统</h1>
+    </div>
+    
     <div class="LoginRegist">
-    <%
-    	
-    %>
-      Welcome:${current_student}
+			<%
+				Object obj = request.getSession().getAttribute("current_student");
+				Object obj2 = request.getSession().getAttribute("current_admin");
+				if(obj!=null){
+					String userName = ((Student)obj).getName();
+			%>
+					<span style="color: #3591E3;">欢迎你，<%=userName %></span> / 
+					<a href="<c:url value='/page/logout.do'/>">注销</a>
+			<%
+				}else if(obj2!=null){
+					String compName = ((Admin)obj2).getName();
+			%>
+					<span style="color: #3591E3;">欢迎你，<%=compName %></span> / 
+					<a href="<c:url value='/page/logout.do'/>">注销</a>
+			<%		
+				}
+			%>
     </div>
   </div>
 </div>
-
 
 <div class="content-wrap">
   <nav class="navbar navbar-default">
@@ -58,7 +63,7 @@
     </div>
   </nav>
 
-  <div class="container-fuild body">
+<!--   <div class="container-fuild body">
     <div class="menus">
       <div class="container-fluid">
         <div class="row">
@@ -79,16 +84,29 @@
         </div>
       </div>
     </div>
-
-    <div class="mainbody">
-      
-    </div>
-
+	<div>
+		MainBody
+	</div>
     <div style="clear:both;"></div>
-  </div>
-</div> --%>
-<%@ include file="/WEB-INF/pages/pageHeader.jsp" %>
+  </div> -->
+  
+</div>
 
-<%@ include file="/WEB-INF/pages/pageBottom.jsp" %>
-</body>
-</html>
+<div class="main-footer">
+  <div class="container-fuild">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+        <h3>Contact 联系我们</h3>
+        <p>Tel/电话：188xxxxxxxx</p>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+        <h3>Vision 版本标号</h3>
+        <p>V/版本：Alpha 0.1</p>                
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center" id="copyright">
+        <h3>Copyright 版权所有</h3>
+        <p>广东工业大学计算机学院@tangzhihong版权所有</p>
+      </div>
+    </div>
+  </div>
+</div>
