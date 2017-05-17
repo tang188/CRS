@@ -22,22 +22,22 @@ public class LoginController {
 	@Resource
 	ITbAdminService iTbAdminService;
 	
-	@RequestMapping("/stuentLogin.do")
+	@RequestMapping("/login.do")
 	public String studentLogin(HttpServletRequest request, Model model) {
 		HttpSession httpSession=request.getSession();
-		int account = Integer.parseInt(request.getParameter("sno"));
+		int account = Integer.parseInt(request.getParameter("account"));
 		String password = Md5Utils.encode(request.getParameter("password"));
 		String error = "";
-		int login_status = Integer.parseInt(request.getParameter("optionsRadios"));
+		int login_status = Integer.parseInt(request.getParameter("login_radios"));
 		
-		Student student;
-		Admin admin;
+		Student student=new Student();
+		Admin admin =new Admin();
 		//student login
 		if (login_status==1) {
 			student=iTbStudentService.login(account, password);
 			if(student!=null) {
 				httpSession.setAttribute("current_student", student);
-				return "redirect:pages/student/main.do";
+				return "/student/main";
 			}	
 			error = "账号错误或者是密码错误";
 		}
@@ -46,13 +46,12 @@ public class LoginController {
 			admin=iTbAdminService.login(account, password);
 			if (admin!=null) {
 				httpSession.setAttribute("current_admim", admin);
-				return "redirect:pages/admin/main.do";
+				return "/admin/main";
 			}
 			error = "账号错误或者是密码错误";
 		}
 		model.addAttribute("msg", error);
-		return "pages/login";
+		return "login";
 	}
-	
-	
+		
 }

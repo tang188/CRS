@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>万才网</title>
+		<title>校园修缮系统</title>
 		<meta charset="utf-8">
 		<meta http-equiv="keywords" content="校园修缮系统">
 		<meta http-equiv="description" content="校园修缮系统">

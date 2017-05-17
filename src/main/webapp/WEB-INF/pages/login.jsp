@@ -14,7 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<c:url value='/css/login.css'/>">
 <script type="text/javascript" src="<c:url value='/js/login.js'/>"></script>
-<title>Login</title>
+<title>校园修缮系统</title>
 </head>
 <body>
 <!-- 	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
@@ -34,8 +34,8 @@
 								
 							</div>
 							<div class="col-xs-6">账号
-								<input type="text" class="form-control" id="registerInputEmail"
-									name="accout">
+								<input type="text" class="form-control" id="account"
+									name="account">
 							</div>
 						</div>
 						<div class="form-group">
@@ -44,14 +44,14 @@
 							</div>
 							<div class="col-xs-6">密码
 								<input type="password" class="form-control"
-									id="registerInputPassword" name="password">
+									id="login_password" name="password">
 							</div>
 						</div>
 						<div class="radio col-xs-4 col-xs-offset-4">
-							<label> <input type="radio" name="optionsRadios"
-								id="optionsRadios1" value="1" checked> 学生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							 <input type="radio" name="optionsRadios"
-								id="optionsRadios2" value="2"> 管理员
+							<label> <input type="radio" name="login_radios"
+								id="loginRadios1" value="1" checked> 学生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							 <input type="radio" name="login_radios"
+								id="loginRadios2" value="2"> 管理员
 							</label> <br>							
 							<span style="color: red">${msg }</span>
 							

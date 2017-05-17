@@ -16,9 +16,60 @@
 		<script type="text/javascript" src="<c:url value='/js/模板.js'/>"></script>
 	</head>
 	<body>
-		<%-- <%@ include file="/WEB-INF/jsp/common/pageHeader.jsp" %> --%>
-		<div id="content">
-			
-		</div>
+<div class="main">
+    <div class="row">
+      <span class="col-sm-offset-6">快速注册</span>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="inputId" class="col-sm-4 control-label">帐号：</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="inputId" placeholder="请输入账号">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputName" class="col-sm-4 control-label">姓名：</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="inputName" placeholder="请输入姓名">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword" class="col-sm-4 control-label">密码：</label>
+          <div class="col-sm-8">
+            <input type="password" class="form-control" id="inputPassword" placeholder="请输入密码">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword1" class="col-sm-4 control-label">重复密码：</label>
+          <div class="col-sm-8">
+            <input type="password" class="form-control" id="inputPassword1" placeholder="请再次输入密码">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputTel" class="col-sm-4 control-label">电话：</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="inputTel" placeholder="请输入电话">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-6 col-sm-6">
+            <div class="checkbox">
+              <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked>学生
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">管理员
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-5 col-sm-7">
+            <button type="submit" class="btn btn-default">完成</button>
+            <button type="button" class="btn btn-default  col-sm-offset-5">取消</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 	</body>
 </html>

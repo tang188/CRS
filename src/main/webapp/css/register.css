@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+body{
+	background: url(/images/bg.jpg) no-repeat;
+}
+
+
+.main span{
+	font-size: 50px;
+	color:white;
+}
+
+.form-group label{
+	color:white;
+}
+
+.form-horizontal{
+	margin-top: 20px;
+}

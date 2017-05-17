@@ -12,7 +12,7 @@ import com.tangzh.domain.StudentExample;
  * @author tangzh
  *
  */
-@Service
+
 public interface ITbStudentService {
 	/**
 	 * insert student

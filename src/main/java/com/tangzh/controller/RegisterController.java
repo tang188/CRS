@@ -11,6 +11,7 @@ import com.tangzh.domain.Admin;
 import com.tangzh.domain.Student;
 import com.tangzh.service.ITbAdminService;
 import com.tangzh.service.ITbStudentService;
+import com.tangzh.utils.Md5Utils;
 import com.tangzh.utils.ValidateUtils;
 
 @Controller
@@ -21,14 +22,14 @@ public class RegisterController {
 	@Resource
 	ITbAdminService adminService;
 	
-	@SuppressWarnings("null")
-	@RequestMapping("/info")
+	@RequestMapping("/register.do")
 	public String doRegister(HttpServletRequest request, Model model) {
 		int account=Integer.parseInt(request.getParameter("account"));
 		String password=request.getParameter("password");
+		String password1=request.getParameter("password1");
 		String name=request.getParameter("name");
 		String tel=request.getParameter("tel");
-		int register_status=Integer.parseInt(request.getParameter("register_status"));
+		int register_status=Integer.parseInt(request.getParameter("register_radios"));
 		String error = "";
 		
 		//验证码校验。
@@ -36,26 +37,34 @@ public class RegisterController {
 		String user_verifiedCode = request.getParameter("verifiedCode");
 		if(!ValidateUtils.isSame(session_verifiedCode, user_verifiedCode)){
 			error = "验证码不正确！";
+			model.addAttribute("message",error);
+			return "register";
 		}
 		
 		try {
-			if (register_status==1) {
-				Student student=null;
-				student.setTel(tel);
-				student.setSid(account);
-				student.setName(name);
-				student.setPassword(password);
-				studentService.insertSelective(student);		
-				error="Register Success";
-			}
-			else {
-				Admin admin=null;
-				admin.setAid(account);
-				admin.setName(name);
-				admin.setPassword(password);
-				admin.setTel(tel);
-				adminService.insertSelective(admin);
-				error="Register Success";
+			if (password.equals(password1)) {						
+				if (register_status==1) {
+					Student student=new Student();
+					student.setTel(tel);
+					student.setSid(account);
+					student.setName(name);
+					student.setPassword(Md5Utils.encode(password));
+					studentService.insertSelective(student);		
+					error="Register Success";
+				}
+				else {
+					Admin admin=new Admin();
+					admin.setAid(account);
+					admin.setName(name);
+					admin.setPassword(Md5Utils.encode(password));
+					admin.setTel(tel);
+					adminService.insertSelective(admin);
+					error="Register Success";
+				}			
+			}else {
+				error="密码不一致，重新输入";
+				model.addAttribute("message", error);
+				return "register";
 			}
 		} catch (Exception e) {
 			error = "注册失败，请重试！";
@@ -63,6 +72,6 @@ public class RegisterController {
 			return "errorPage";
 		}
 		
-		return "redirect:/pages/login.do";
+		return "redirect:/page/login.do";
 	}
 }

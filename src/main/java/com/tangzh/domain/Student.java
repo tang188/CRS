@@ -100,4 +100,13 @@ public class Student {
     public void setTel(String tel) {
         this.tel = tel == null ? null : tel.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Student [sid=" + sid + ", name=" + name + ", password="
+				+ password + ", sex=" + sex + ", age=" + age + ", dept=" + dept
+				+ ", specialty=" + specialty + ", classNo=" + classNo
+				+ ", addr=" + addr + ", tel=" + tel + "]";
+	}
+    
 }
