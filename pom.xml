@@ -102,11 +102,13 @@
 		<!-- https://mvnrepository.com/artifact/javax.servlet/jsp-api -->
 
 		<!-- mybatis分页插件 -->
+<!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
 		<dependency>
-			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper</artifactId>
-			<version>5.0.0</version>
+		    <groupId>com.github.pagehelper</groupId>
+		    <artifactId>pagehelper</artifactId>
+		    <version>4.1.6</version>
 		</dependency>
+
 
 		<!-- 文件上传 -->
 		<dependency>

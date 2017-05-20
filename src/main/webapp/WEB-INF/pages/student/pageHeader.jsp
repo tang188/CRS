@@ -73,10 +73,10 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">notice</a></li>
-          <li><a href="#">news</a></li>
-          <li><a href="#">advise</a></li>
-          <li><a href="#">about us</a></li>
+          <li><a href="<c:url value='/notice/main.do'/>">notice</a></li>
+          <li><a href="<c:url value='/news/newsList.do'/>">news</a></li>
+          <li><a href="<c:url value='/advise/advise.do'/>">advise</a></li>
+          <li><a href="<c:url value='/about/about.do'/>">about us</a></li>
         </ul>
       </div>
     </div>

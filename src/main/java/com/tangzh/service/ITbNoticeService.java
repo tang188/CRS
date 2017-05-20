@@ -29,4 +29,6 @@ public interface ITbNoticeService {
     int updateByPrimaryKeySelective(Notice record);
 
     int updateByPrimaryKey(Notice record);
+    
+    List<Notice> selectMore(NoticeExample example,int pageIndex,int pageSize);
 }

@@ -20,7 +20,6 @@
    	 var hs=hw/25;
    	 document.getElementById('mTitle').style.fontSize=hs+"px";
     }
-    fonts();
     window.onresize=function(){
    	 fontS();
     }

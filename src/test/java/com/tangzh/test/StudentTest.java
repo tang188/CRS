@@ -1,21 +1,7 @@
 package com.tangzh.test;
 
-import java.io.Reader;
-
-import javax.annotation.Resource;
-import javax.annotation.Resources;
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
-import org.junit.runners.Parameterized.Parameters;
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.transaction.annotation.Transactional;
-
-import com.tangzh.domain.Admin;
 import com.tangzh.domain.Student;
 import com.tangzh.service.ITbStudentService;
 

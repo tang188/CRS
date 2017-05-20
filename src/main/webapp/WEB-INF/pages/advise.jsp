@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/pages/common.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 
 <html>
@@ -20,18 +20,27 @@
 
 </head>
 <body>
-<%@ include file="/WEB-INF/pages/student/pageHeader.jsp" %>
-<%@ include file="/WEB-INF/pages/student/pageMenu.jsp" %>
+	<%@ include file="/WEB-INF/pages/student/pageHeader.jsp"%>
+	<%@ include file="/WEB-INF/pages/student/pageMenu.jsp"%>
 
-	
-<div class="content">
-	<div class="mainbody">
-	
-	  
+
+	<div class="content">
+		<div class="mainbody">
+			<form action="/advise/sendAdvise.do" method="post">
+				<div>
+					<input type="text" name="adviseContent">
+				</div>
+				<div>				
+					<button 
+						type="submit">提交</button>
+					<button 
+						onclick="javascript:history.go(-1)">取消</button>
+				</div>
+			</form>
+		</div>
+
 	</div>
-	
-</div>
 
-<%@ include file="/WEB-INF/pages/pageBottom.jsp" %>
+	<%@ include file="/WEB-INF/pages/pageBottom.jsp"%>
 </body>
 </html>

@@ -13,6 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<c:url value='/css/studentMain.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/pageContent.css'/>">
 <%-- <script type="text/javascript" src="<c:url value='/js/noticeList.js'/>"></script>
  --%>
 <title>校园修缮系统</title>
@@ -25,34 +26,22 @@
 	
 <div class="content">
 	<div class="mainbody">
-	
-		<div class="table-responsive">
-		  <table class="table">
-			<tr>
-				<td>序号</td>
-				<td>标题</td>
-				<td>时间</td>
-				<td></td>
-			</tr>			
-		<c:forEach var="x" items="${list}">
-        <tr>
-          <td >${x.nid}</td>        
-          <td >${x.title}</td>
-          <td >${x.pubTime}</td>
-          <td><a href="<c:url value='/notice/showDetail.do?nid=${x.nid}'/>">查看</a></td>
-        </tr>
-		</c:forEach>
-						
-		  </table>
-		</div>
-	  	<div style="clear: both;"></div>
-		<nav class="text-right">
-			<ul class="pager">
-			<!-- <c:url value='/notice/main.do'/> -->
-				<li><a href="#">上一页</a></li>
-				<li><a href="#">下一页</a></li>
-			</ul>
-		</nav>
+		<form action="/student/changePassword.do" method="post">
+			<div>
+			原密码：<input type="password" name="oldPassword">
+			</div>
+			
+			<div>
+			新密码：<input type="password" name="newPassword">
+			</div>
+			<div>
+			重复密码：<input type="password" name="valiPassword">
+			</div>
+			<span style="color: red">${error}</span>
+			<br>
+			<button type="submit">提交</button>
+			<button type="reset">取消</button>
+		</form>
 	  
 	</div>
 	

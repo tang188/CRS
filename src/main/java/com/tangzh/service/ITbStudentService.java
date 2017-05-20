@@ -2,8 +2,6 @@ package com.tangzh.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import com.tangzh.domain.Student;
 import com.tangzh.domain.StudentExample;
 

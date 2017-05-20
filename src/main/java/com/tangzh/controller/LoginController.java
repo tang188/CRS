@@ -37,7 +37,7 @@ public class LoginController {
 			student=iTbStudentService.login(account, password);
 			if(student!=null) {
 				httpSession.setAttribute("current_student", student);
-				return "/student/main";
+				return "redirect:/notice/main.do";
 			}	
 			error = "账号错误或者是密码错误";
 		}

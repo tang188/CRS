@@ -6,6 +6,8 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import com.tangzh.domain.Notice;
 import com.tangzh.domain.NoticeExample;
 import com.tangzh.mapper.NoticeMapper;
@@ -78,6 +80,14 @@ public class ITbNoticeServiceImpl implements ITbNoticeService {
 	public int updateByPrimaryKey(Notice record) {
 		
 		return noticeMapper.updateByPrimaryKey(record);
+	}
+
+	@Override
+	public List<Notice> selectMore(NoticeExample example, int pageIndex,
+			int pageSize) {		
+		PageHelper.startPage(pageIndex,pageSize);
+		Page<Notice> list=(Page<Notice>) noticeMapper.selectByExample(example);		
+		return list;
 	}
 
 }

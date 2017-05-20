@@ -34,9 +34,22 @@
 		<property name="mapperLocations" value="classpath:com/tangzh/mapper/*.xml"/>
 		<!-- 声明别名，这样的话，在mapper xml文件描述类名时就可以不用完整路径了(即不用加包名了)-->
 		<property name="typeAliasesPackage" value="com.tangzh.domain"/>
+		
+		<property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <property name="properties">
+                        <value>
+                            dialect=mysql
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+		
 		<!-- 指定mybatis配置文件的位置 -->
-		<!-- <property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"></property> -->
-	</bean>
+<!-- 		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml"></property>
+ -->	</bean>
 	
 		<!-- 自动扫描mybatis定义的dao(mapper)类  ，spring扫描到这些dao类之后，就会向spring容器注册这些dao类对象-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

@@ -34,12 +34,12 @@
 				<td>时间</td>
 				<td></td>
 			</tr>			
-		<c:forEach var="x" items="${list}">
+		<c:forEach var="x" items="${newsList}">
         <tr>
-          <td >${x.nid}</td>        
+          <td >${x.newsid}</td>        
           <td >${x.title}</td>
           <td >${x.pubTime}</td>
-          <td><a href="<c:url value='/notice/showDetail.do?nid=${x.nid}'/>">查看</a></td>
+          <td><a href="<c:url value='/news/showDetail.do?newsId=${x.newsid}'/>">查看</a></td>
         </tr>
 		</c:forEach>
 						

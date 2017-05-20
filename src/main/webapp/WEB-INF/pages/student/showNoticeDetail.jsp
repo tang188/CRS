@@ -13,50 +13,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<c:url value='/css/studentMain.css'/>">
-<%-- <script type="text/javascript" src="<c:url value='/js/noticeList.js'/>"></script>
- --%>
+<link rel="stylesheet" href="<c:url value='/css/pageContent.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/notice.css'/>">
 <title>校园修缮系统</title>
-
 </head>
 <body>
 <%@ include file="/WEB-INF/pages/student/pageHeader.jsp" %>
 <%@ include file="/WEB-INF/pages/student/pageMenu.jsp" %>
-
 	
-<div class="content">
-	<div class="mainbody">
-	
-		<div class="table-responsive">
-		  <table class="table">
-			<tr>
-				<td>序号</td>
-				<td>标题</td>
-				<td>时间</td>
-				<td></td>
-			</tr>			
-		<c:forEach var="x" items="${list}">
-        <tr>
-          <td >${x.nid}</td>        
-          <td >${x.title}</td>
-          <td >${x.pubTime}</td>
-          <td><a href="<c:url value='/notice/showDetail.do?nid=${x.nid}'/>">查看</a></td>
-        </tr>
-		</c:forEach>
-						
-		  </table>
-		</div>
-	  	<div style="clear: both;"></div>
-		<nav class="text-right">
-			<ul class="pager">
-			<!-- <c:url value='/notice/main.do'/> -->
-				<li><a href="#">上一页</a></li>
-				<li><a href="#">下一页</a></li>
-			</ul>
-		</nav>
-	  
-	</div>
-	
-</div>
+<h1>${notice.title}</h1>
+<div>${notice.content }</div>
+<div>${notice.pubTime }</div>
+<div>发布者：${notice.aid }</div>
 
 <%@ include file="/WEB-INF/pages/pageBottom.jsp" %>
 </body>

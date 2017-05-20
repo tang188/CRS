@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/pages/common.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 
 <html>
@@ -20,18 +20,34 @@
 
 </head>
 <body>
-<%@ include file="/WEB-INF/pages/student/pageHeader.jsp" %>
-<%@ include file="/WEB-INF/pages/student/pageMenu.jsp" %>
+	<%@ include file="/WEB-INF/pages/student/pageHeader.jsp"%>
+	<%@ include file="/WEB-INF/pages/student/pageMenu.jsp"%>
 
-	
-<div class="content">
-	<div class="mainbody">
-	
-	  
+
+	<div class="content">
+		<div class="mainbody">
+			<form action="student/sendRepair.do" method="post">
+				<div>
+					报修内容:<br>
+					<textarea rows="3" cols="60" name="repairContent"></textarea>
+				</div>
+				<br>
+				<div>
+					地址：<input type="text" name="repairAddr">
+				</div>
+				<br>
+				<div>					
+					预约时间：<input type="datetime" name="repairTime">
+				</div>
+				<br>
+			<button type="submit">提交</button>
+			<button type="reset">取消</button>
+			</form>
+
+		</div>
+
 	</div>
-	
-</div>
 
-<%@ include file="/WEB-INF/pages/pageBottom.jsp" %>
+	<%@ include file="/WEB-INF/pages/pageBottom.jsp"%>
 </body>
 </html>
