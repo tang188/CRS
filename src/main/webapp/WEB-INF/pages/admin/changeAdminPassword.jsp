@@ -13,48 +13,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<c:url value='/css/studentMain.css'/>">
+<link rel="stylesheet" href="<c:url value='/css/pageContent.css'/>">
 <%-- <script type="text/javascript" src="<c:url value='/js/noticeList.js'/>"></script>
  --%>
 <title>校园修缮系统</title>
 
 </head>
 <body>
-<%@ include file="/WEB-INF/pages/student/pageHeader.jsp" %>
-<%@ include file="/WEB-INF/pages/student/pageMenu.jsp" %>
+<%@ include file="/WEB-INF/pages/admin/pageHeader.jsp" %>
+<%@ include file="/WEB-INF/pages/admin/pageMenu.jsp" %>
 
 	
 <div class="content">
-	<div class="mainbody">
+	<div class="mainbody">	
+	 	<form action="/admin/changeAdminPassword.do" method="post">
+	 		<div>
+			原密码：<input type="password" name="oldAdminPassword">
+			</div>
+			
+			<div>
+			新密码：<input type="password" name="newAdminPassword">
+			</div>
+			<div>
+			重复密码：<input type="password" name="valiAdminPassword">
+			</div>
+	 		<br>
+	 		<span style="color: red">${error}</span>
+	 		<br>
+	 		<button type="submit">提交</button>
+	 		<button type="reset">重置</button>
+	 	</form>
+	</div>
 	
-		<div class="table-responsive">
-		  <table class="table">
-			<tr>
-				<td>序号</td>
-				<td>标题</td>
-				<td>时间</td>
-				<td></td>
-			</tr>			
-		<c:forEach var="x" items="${newsList}">
-        <tr>
-          <td >${x.newsid}</td>        
-          <td >${x.title}</td>
-          <td >${x.pubTime}</td>
-          <td><a href="<c:url value='/news/showDetail.do?newsId=${x.newsid}'/>">查看</a></td>
-        </tr>
-		</c:forEach>
-						
-		  </table>
-		</div>
-	  	<div style="clear: both;"></div>
-		<nav class="text-right">
-			<ul class="pager">
-			<!-- <c:url value='/notice/main.do'/> -->
-				<li><a href="#">上一页</a></li>
-				<li><a href="#">下一页</a></li>
-			</ul>
-		</nav>
-	  
-	</div>	
 </div>
 
 <%@ include file="/WEB-INF/pages/pageBottom.jsp" %>

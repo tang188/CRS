@@ -16,7 +16,7 @@ import com.tangzh.service.ITbAdminService;
  * @author tangzh
  *
  */
-@Service
+@Service("adminService")
 public class ITbAdminServiceImpl implements ITbAdminService{
 	@Resource
 	AdminMapper adminMapper;

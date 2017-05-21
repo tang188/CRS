@@ -14,25 +14,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<c:url value='/css/studentMain.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/pageContent.css'/>">
-<link rel="stylesheet" href="<c:url value='/css/notice.css'/>">
+<%-- <script type="text/javascript" src="<c:url value='/js/noticeList.js'/>"></script>
+ --%>
 <title>校园修缮系统</title>
+
 </head>
 <body>
-	<%@ include file="/WEB-INF/pages/student/pageHeader.jsp"%>
-	<%@ include file="/WEB-INF/pages/student/pageMenu.jsp"%>
+	<%@ include file="/WEB-INF/pages/admin/pageHeader.jsp"%>
+	<%@ include file="/WEB-INF/pages/admin/pageMenu.jsp"%>
+
+
 	<div class="content">
 		<div class="mainbody">
-			<h1>${notice.title}</h1>
-			<div>${notice.content }</div>
-			<div>${notice.pubTime }</div>
-			<div>发布者：${notice.aid }</div>
+			<% String s=request.getParameter("nid"); %>
+			<form action="/news/changeNews.do?nid=<%=s%>" method="post">
+				<div>
+					标题：<input type="text" name="newsTitle">
+				</div>
+				<div>
+					内容：<br><textarea cols="50" rows="10" name="newsContent">
+					</textarea>
+				</div>
+
+				<button type="submit">提交</button>
+				<button type="reset">重置</button>
+
+			</form>
 
 		</div>
-
 	</div>
-
-
 
 	<%@ include file="/WEB-INF/pages/pageBottom.jsp"%>
 </body>
-</html>

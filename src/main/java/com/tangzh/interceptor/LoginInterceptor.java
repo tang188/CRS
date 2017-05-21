@@ -8,6 +8,8 @@ import org.apache.commons.configuration.PropertiesConfiguration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tangzh.domain.Admin;
+import com.tangzh.domain.Advise;
 import com.tangzh.domain.Student;
 /**
  * login intercepter
@@ -19,14 +21,12 @@ public class LoginInterceptor implements HandlerInterceptor{
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handle, Exception e)
 			throws Exception {
-
 		
 	}
 
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handle, ModelAndView areg3)
 			throws Exception {
-
 		
 	}
 
@@ -46,6 +46,10 @@ public class LoginInterceptor implements HandlerInterceptor{
 		}
 		Student currentStudent=(Student) request.getSession().getAttribute("current_student");
 		if(currentStudent!=null){
+			return true;
+		}
+		Admin currentAdmin=(Admin) request.getSession().getAttribute("current_admin");
+		if(currentAdmin!=null){
 			return true;
 		}
 		//重新跳转回登录界面。

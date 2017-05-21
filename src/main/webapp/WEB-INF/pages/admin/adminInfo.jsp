@@ -14,24 +14,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<c:url value='/css/studentMain.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/pageContent.css'/>">
-<link rel="stylesheet" href="<c:url value='/css/notice.css'/>">
+<%-- <script type="text/javascript" src="<c:url value='/js/noticeList.js'/>"></script>
+ --%>
 <title>校园修缮系统</title>
+
 </head>
 <body>
-	<%@ include file="/WEB-INF/pages/student/pageHeader.jsp"%>
-	<%@ include file="/WEB-INF/pages/student/pageMenu.jsp"%>
+	<%@ include file="/WEB-INF/pages/admin/pageHeader.jsp"%>
+	<%@ include file="/WEB-INF/pages/admin/pageMenu.jsp"%>
+
+
 	<div class="content">
 		<div class="mainbody">
-			<h1>${notice.title}</h1>
-			<div>${notice.content }</div>
-			<div>${notice.pubTime }</div>
-			<div>发布者：${notice.aid }</div>
+			<%
+				Admin admin = (Admin) session.getAttribute("current_admin");
+			%>
+			<div>
+				姓名：<%=admin.getName()%></div>
 
+			<div>
+				职务：<%=admin.getPost()%></div>
+
+			<div>
+				联系方式：<%=admin.getTel()%></div>
+
+			<div>
+				地址：<%=admin.getAddr()%></div>
 		</div>
-
 	</div>
-
-
 
 	<%@ include file="/WEB-INF/pages/pageBottom.jsp"%>
 </body>

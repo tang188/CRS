@@ -1,4 +1,4 @@
-<%@page import="java.util.Date"%>
+<%@page import="com.tangzh.service.impl.ITbStudentServiceImpl"%>
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/pages/common.jsp"%>
@@ -21,36 +21,42 @@
 
 </head>
 <body>
-	<%@ include file="/WEB-INF/pages/student/pageHeader.jsp"%>
-	<%@ include file="/WEB-INF/pages/student/pageMenu.jsp"%>
+	<%@ include file="/WEB-INF/pages/admin/pageHeader.jsp"%>
+	<%@ include file="/WEB-INF/pages/admin/pageMenu.jsp"%>
 
 
 	<div class="content">
 		<div class="mainbody">
-			<form action="/student/sendRepair.do" method="post">
-				<div>
-					报修内容:<br>
-					<textarea rows="3" cols="60" name="repairContent"></textarea>
-				</div>
-				<br>
-				<div>
-					地址：<input type="text" name="repairAddr">
-				</div>
-				<br>
+			<div class="table-responsive">
+				<table class="table">
+					<tr>
+						<td>序号</td>
+						<td>建议</td>
+						<td>时间</td>
+ 						<td></td>
+					</tr>
+					<% int i=1; %>
+					<c:forEach var="x" items="${adviseList}">
+						<tr>
+							<td><%=i++ %></td>
+							<td>${x.content}</td>
+							<td>${x.time}</td>
 
-				<div>					
-					预约时间：<input type="text" name="repairTime">
-				</div>
-				<br>
-				
-				<span style="color: red">${error}</span>
-				<br>
-			<button type="submit">提交</button>
-			<button type="reset">取消</button>
-			</form>
+						</tr>
+					</c:forEach>
+
+				</table>
+			</div>
+			<div style="clear: both;"></div>
+			<nav class="text-right">
+				<ul class="pager">
+					<!-- <c:url value='/notice/main.do'/> -->
+					<li><a href="#">上一页</a></li>
+					<li><a href="#">下一页</a></li>
+				</ul>
+			</nav>
 
 		</div>
-
 	</div>
 
 	<%@ include file="/WEB-INF/pages/pageBottom.jsp"%>

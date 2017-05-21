@@ -3,7 +3,14 @@ package com.tangzh.domain;
 import java.util.Date;
 
 public class Bill {
-    private Integer bid;
+    @Override
+	public String toString() {
+		return "Bill [bid=" + bid + ", detail=" + detail + ", time=" + time
+				+ ", addr=" + addr + ", status=" + status + ", appTime="
+				+ appTime + ", sid=" + sid + "]";
+	}
+
+	private Integer bid;
 
     private String detail;
 

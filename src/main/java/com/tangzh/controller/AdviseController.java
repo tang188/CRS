@@ -1,14 +1,17 @@
 package com.tangzh.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.tangzh.domain.Advise;
+import com.tangzh.domain.AdviseExample;
 import com.tangzh.domain.Student;
 import com.tangzh.service.ITbAdviseService;
 
@@ -21,7 +24,7 @@ public class AdviseController {
 
 	@RequestMapping("/advise.do")
 	public String advise() {
-		return "advise";
+		return "student/advise";
 	}
 	@RequestMapping("/sendAdvise.do")
 	public String sendAdvise(HttpServletRequest request) {
@@ -34,5 +37,14 @@ public class AdviseController {
 		advise.setSid(student.getSid());
 		adviseService.insert(advise);
 		return "success";
+	}
+	
+	@RequestMapping("/adviseList.do")
+	public String adviseList(HttpServletRequest request,Model model) {
+		AdviseExample example=new AdviseExample();
+		example.setOrderByClause("time desc");
+		List<Advise> list=adviseService.selectByExample(example);
+		model.addAttribute("adviseList", list);
+		return "admin/adviseList";
 	}
 }

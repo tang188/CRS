@@ -14,7 +14,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<c:url value='/css/studentMain.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/pageContent.css'/>">
-<link rel="stylesheet" href="<c:url value='/css/notice.css'/>">
 <title>校园修缮系统</title>
 </head>
 <body>
@@ -22,17 +21,11 @@
 	<%@ include file="/WEB-INF/pages/student/pageMenu.jsp"%>
 	<div class="content">
 		<div class="mainbody">
-			<h1>${notice.title}</h1>
-			<div>${notice.content }</div>
-			<div>${notice.pubTime }</div>
-			<div>发布者：${notice.aid }</div>
-
+			<h1>标题：${notice.title}</h1>
+			<div>内容：${notice.content }</div>
+			<div>发布时间： ${notice.pubTime }</div>
 		</div>
-
 	</div>
-
-
-
 	<%@ include file="/WEB-INF/pages/pageBottom.jsp"%>
 </body>
 </html>

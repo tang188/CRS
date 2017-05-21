@@ -17,8 +17,17 @@
 <%-- <script type="text/javascript" src="<c:url value='/js/noticeList.js'/>"></script>
  --%>
 <title>校园修缮系统</title>
-
+	
 </head>
+
+<script type="text/javascript">
+var f=${flag};
+if(f){
+	alert("修改成功");
+}
+
+</script>
+
 <body>
 	<%@ include file="/WEB-INF/pages/student/pageHeader.jsp"%>
 	<%@ include file="/WEB-INF/pages/student/pageMenu.jsp"%>

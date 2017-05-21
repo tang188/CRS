@@ -9,6 +9,11 @@ public class AboutController {
 	
 	@RequestMapping("/about.do")
 	public String about() {
-		return "about";
+		return "student/about";
+	}
+	
+	@RequestMapping("/adminAbout.do")
+	public String adminAbout() {
+		return "admin/about";
 	}
 }

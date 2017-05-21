@@ -27,9 +27,43 @@
 <div class="content">
 	<div class="mainbody">
 
-	  
-	</div>
-	
+		<div class="table-responsive">
+		  <table class="table">
+			<tr>
+				<td>序号</td>
+				<td>详情</td>
+				<td>申请时间</td>
+				<td>状态</td>
+				<td>预约时间</td>
+				<td></td>
+				<td></td>
+			</tr>
+		<% int i=1; %>
+		<c:forEach var="x" items="${historyList}">
+        <tr>        	        
+          <td ><%=i++ %></td>        
+          <td >${x.detail}</td>
+          <td >${x.time}</td>
+          <td>${x.status } </td>
+          <td>${x.appTime } </td>          
+			<td><a href="<c:url value='/page/changeRepair.do?bId=${x.bid}'/>">修改</a></td>
+			<td><a href="<c:url value='/student/deleteRepair.do?bId=${x.bid}'/>">删除</a></td>                    
+        </tr>
+		</c:forEach>
+						
+		  </table>
+		</div>
+	  	<div style="clear: both;"></div>
+	  	
+		<nav class="text-right">
+			<ul class="pager">
+			<!-- <c:url value='/notice/main.do'/> -->
+				<li><a href="#">上一页</a></li>
+				<li><a href="#">下一页</a></li>
+			</ul>
+		</nav>
+
+	</div>	
 </div>
 
 <%@ include file="/WEB-INF/pages/pageBottom.jsp" %>

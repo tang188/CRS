@@ -2,22 +2,17 @@ package com.tangzh.controller;
 
 import java.awt.image.BufferedImage;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.tangzh.service.ITbNoticeService;
 import com.tangzh.utils.VerifiedCodeUtils;
 
 @Controller
-@RequestMapping("page")
+@RequestMapping("/page")
 public class PageController {
-	
-	@Resource(name="noticeService")
-	ITbNoticeService iTbNoticeService;
 	
 	@RequestMapping("/login.do")
 	public String login(){
@@ -56,9 +51,34 @@ public class PageController {
 		return "student/sendRepair";
 	}
 	
-	@RequestMapping("/repairHistory.do")
-	public String repairHistory() {
-		return "student/repairHistory";
+	@RequestMapping("/changeRepair.do")
+	public String repairHistory(HttpServletRequest request) {		
+		return "student/changeRepair";
+	}
+	
+	@RequestMapping("/changeAdminInfo.do")
+	public String changeAdminInfo() {
+		return "admin/changeAdminInfo";
+	}
+	
+	@RequestMapping("/changeAdminPassword.do")
+	public String changeAdminPassword() {
+		return "admin/changeAdminPassword";
+	}
+	
+	@RequestMapping("/publish.do")
+	public String publish() {
+		return "admin/publish";
+	}
+	
+	@RequestMapping("/changeNotice.do")
+	public String changeNotice() {
+		return "admin/changeNotice";
+	}
+	
+	@RequestMapping("/changeNews.do")
+	public String changeNews() {
+		return "admin/changeNews";
 	}
 	
 	@RequestMapping("/verifiedCode.do")

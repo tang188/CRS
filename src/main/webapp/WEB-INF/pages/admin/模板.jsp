@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/pages/common.jsp"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 <!DOCTYPE html>
 
 <html>
@@ -14,25 +14,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="<c:url value='/css/studentMain.css'/>">
 <link rel="stylesheet" href="<c:url value='/css/pageContent.css'/>">
-<link rel="stylesheet" href="<c:url value='/css/notice.css'/>">
+<%-- <script type="text/javascript" src="<c:url value='/js/noticeList.js'/>"></script>
+ --%>
 <title>校园修缮系统</title>
+
 </head>
 <body>
-	<%@ include file="/WEB-INF/pages/student/pageHeader.jsp"%>
-	<%@ include file="/WEB-INF/pages/student/pageMenu.jsp"%>
-	<div class="content">
-		<div class="mainbody">
-			<h1>${notice.title}</h1>
-			<div>${notice.content }</div>
-			<div>${notice.pubTime }</div>
-			<div>发布者：${notice.aid }</div>
+<%@ include file="/WEB-INF/pages/admin/pageHeader.jsp" %>
+<%@ include file="/WEB-INF/pages/admin/pageMenu.jsp" %>
 
-		</div>
+	
+<div class="content">
+	<div class="mainbody">	
+	 	
 
-	</div>
+	</div>	
+</div>
 
-
-
-	<%@ include file="/WEB-INF/pages/pageBottom.jsp"%>
+<%@ include file="/WEB-INF/pages/pageBottom.jsp" %>
 </body>
 </html>

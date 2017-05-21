@@ -45,8 +45,8 @@ public class LoginController {
 		else {
 			admin=iTbAdminService.login(account, password);
 			if (admin!=null) {
-				httpSession.setAttribute("current_admim", admin);
-				return "/admin/main";
+				httpSession.setAttribute("current_admin", admin);
+				return "redirect:/admin/main.do";
 			}
 			error = "账号错误或者是密码错误";
 		}
