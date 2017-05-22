@@ -32,7 +32,7 @@ public class RepairController {
 		try {
 			BillExample example=new BillExample();
 			example.setOrderByClause("time desc");
-			PageHelper.startPage(1,7);
+			PageHelper.startPage(1,5);
 			List<Bill> list =billService.selectByExample(example);
 			model.addAttribute("billList", list);
 		} catch (Exception e) {
@@ -84,7 +84,7 @@ public class RepairController {
 			example.setOrderByClause("time desc");
 			Criteria criteria=example.createCriteria();
 			criteria.andStatusEqualTo(status);
-			PageHelper.startPage(1,7);
+			PageHelper.startPage(1,5);
 			List<Bill> list =billService.selectByExample(example);
 			model.addAttribute("billList", list);
 		} catch (Exception e) {
