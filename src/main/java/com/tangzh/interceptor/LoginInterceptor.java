@@ -9,7 +9,6 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tangzh.domain.Admin;
-import com.tangzh.domain.Advise;
 import com.tangzh.domain.Student;
 /**
  * login intercepter

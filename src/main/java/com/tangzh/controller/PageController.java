@@ -1,13 +1,21 @@
 package com.tangzh.controller;
 
 import java.awt.image.BufferedImage;
+import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.tangzh.domain.Bill;
+import com.tangzh.domain.Worker;
+import com.tangzh.domain.WorkerExample;
+import com.tangzh.service.ITbBillService;
+import com.tangzh.service.ITbWorkerService;
 import com.tangzh.utils.VerifiedCodeUtils;
 
 @Controller
@@ -79,6 +87,57 @@ public class PageController {
 	@RequestMapping("/changeNews.do")
 	public String changeNews() {
 		return "admin/changeNews";
+	}
+	
+	@RequestMapping("/addStudent.do")
+	public String addStudent() {
+		return "admin/addStudent";
+	}
+	
+	@RequestMapping("/searchStudent.do")
+	public String searchStudent() {
+		return "admin/searchStudent"; 
+	}
+	
+	@RequestMapping("/changeStudent.do")
+	public String changeStudent() {
+		return "admin/changeStudent";
+	}
+	
+	@RequestMapping("/addWorker.do")
+	public String addWorker() {
+		return "admin/addWorker";
+	}
+	
+	@RequestMapping("/searchWorker.do")
+	public String searchWorker() {
+		return "admin/searchWorker";
+	}
+	
+	@RequestMapping("/changeWorker.do")
+	public String changeWorker() {
+		return "admin/changeWorker";
+	}
+	
+	@Resource(name="workerService")
+	ITbWorkerService workerService;
+	@Resource(name="billService")
+	ITbBillService billService;
+	
+	@RequestMapping("/repair.do")
+	public String changeBill(Model model,int bid) {
+		WorkerExample example=new WorkerExample();
+		try {
+			List<Worker> workers=workerService.selectByExample(example);
+			model.addAttribute("workers", workers);
+			Bill bill=billService.selectByPrimaryKey(bid);
+			model.addAttribute("bill", bill);
+		} catch (Exception e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+			return "redirect:/repair/billList.do";
+		}
+		return "admin/changeBill";
 	}
 	
 	@RequestMapping("/verifiedCode.do")

@@ -7,9 +7,7 @@ public class Repair {
 
     private Date rtime;
 
-    private String worker;
-
-    private String status;
+    private Integer wid;
 
     private Integer bid;
 
@@ -29,20 +27,12 @@ public class Repair {
         this.rtime = rtime;
     }
 
-    public String getWorker() {
-        return worker;
+    public Integer getWid() {
+        return wid;
     }
 
-    public void setWorker(String worker) {
-        this.worker = worker == null ? null : worker.trim();
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+    public void setWid(Integer wid) {
+        this.wid = wid;
     }
 
     public Integer getBid() {

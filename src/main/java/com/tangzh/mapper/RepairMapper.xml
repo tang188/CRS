@@ -4,8 +4,7 @@
   <resultMap id="BaseResultMap" type="com.tangzh.domain.Repair" >
     <id column="r_id" property="rId" jdbcType="INTEGER" />
     <result column="rtime" property="rtime" jdbcType="TIMESTAMP" />
-    <result column="worker" property="worker" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="wid" property="wid" jdbcType="INTEGER" />
     <result column="bid" property="bid" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -67,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    r_id, rtime, worker, status, bid
+    r_id, rtime, wid, bid
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.tangzh.domain.RepairExample" >
     select
@@ -100,10 +99,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.tangzh.domain.Repair" >
-    insert into repair (r_id, rtime, worker, 
-      status, bid)
-    values (#{rId,jdbcType=INTEGER}, #{rtime,jdbcType=TIMESTAMP}, #{worker,jdbcType=VARCHAR}, 
-      #{status,jdbcType=CHAR}, #{bid,jdbcType=INTEGER})
+    insert into repair (r_id, rtime, wid, 
+      bid)
+    values (#{rId,jdbcType=INTEGER}, #{rtime,jdbcType=TIMESTAMP}, #{wid,jdbcType=INTEGER}, 
+      #{bid,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.tangzh.domain.Repair" >
     insert into repair
@@ -114,11 +113,8 @@
       <if test="rtime != null" >
         rtime,
       </if>
-      <if test="worker != null" >
-        worker,
-      </if>
-      <if test="status != null" >
-        status,
+      <if test="wid != null" >
+        wid,
       </if>
       <if test="bid != null" >
         bid,
@@ -131,11 +127,8 @@
       <if test="rtime != null" >
         #{rtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="worker != null" >
-        #{worker,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=CHAR},
+      <if test="wid != null" >
+        #{wid,jdbcType=INTEGER},
       </if>
       <if test="bid != null" >
         #{bid,jdbcType=INTEGER},
@@ -157,11 +150,8 @@
       <if test="record.rtime != null" >
         rtime = #{record.rtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.worker != null" >
-        worker = #{record.worker,jdbcType=VARCHAR},
-      </if>
-      <if test="record.status != null" >
-        status = #{record.status,jdbcType=CHAR},
+      <if test="record.wid != null" >
+        wid = #{record.wid,jdbcType=INTEGER},
       </if>
       <if test="record.bid != null" >
         bid = #{record.bid,jdbcType=INTEGER},
@@ -175,8 +165,7 @@
     update repair
     set r_id = #{record.rId,jdbcType=INTEGER},
       rtime = #{record.rtime,jdbcType=TIMESTAMP},
-      worker = #{record.worker,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=CHAR},
+      wid = #{record.wid,jdbcType=INTEGER},
       bid = #{record.bid,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -188,11 +177,8 @@
       <if test="rtime != null" >
         rtime = #{rtime,jdbcType=TIMESTAMP},
       </if>
-      <if test="worker != null" >
-        worker = #{worker,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=CHAR},
+      <if test="wid != null" >
+        wid = #{wid,jdbcType=INTEGER},
       </if>
       <if test="bid != null" >
         bid = #{bid,jdbcType=INTEGER},
@@ -203,8 +189,7 @@
   <update id="updateByPrimaryKey" parameterType="com.tangzh.domain.Repair" >
     update repair
     set rtime = #{rtime,jdbcType=TIMESTAMP},
-      worker = #{worker,jdbcType=VARCHAR},
-      status = #{status,jdbcType=CHAR},
+      wid = #{wid,jdbcType=INTEGER},
       bid = #{bid,jdbcType=INTEGER}
     where r_id = #{rId,jdbcType=INTEGER}
   </update>

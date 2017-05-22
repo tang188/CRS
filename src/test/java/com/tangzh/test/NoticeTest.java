@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.github.pagehelper.PageInfo;
 import com.tangzh.domain.Notice;
 import com.tangzh.domain.NoticeExample;
 import com.tangzh.service.ITbNoticeService;

@@ -32,8 +32,7 @@
 				</a>
 					<ul id="repair" class="nav nav-list collapse secondmenu"
 						style="height: 0px;">
-						<li><a href="#">分配工人</a></li>
-						<li><a href="#">维修单</a></li>
+						<li><a href="/repair/billList.do">维修单</a></li>
 					</ul></li>
 
 				<li><a href="#studentManager" class="nav-header collapsed"
@@ -42,8 +41,8 @@
 				</a>
 					<ul id="studentManager" class="nav nav-list collapse secondmenu"
 						style="height: 0px;">
-						<li><a href="<c:url value='/page/sendRepair.do'/>">增加学生</a></li>
-						<li><a href="<c:url value='/student/repairHistory.do'/>">删除学生</a></li>
+						<li><a href="<c:url value='/page/searchStudent.do'/>">用户查找</a></li>
+						<li><a href="<c:url value='/page/addStudent.do'/>">增加用户</a></li>
 					</ul></li>
 
 				<li><a href="#worker" class="nav-header collapsed"
@@ -52,8 +51,9 @@
 				</a>
 					<ul id="worker" class="nav nav-list collapse secondmenu"
 						style="height: 0px;">
-						<li><a href="<c:url value='/page/sendRepair.do'/>">增加工人</a></li>
-						<li><a href="<c:url value='/student/repairHistory.do'/>">删除工人</a></li>
+						<li><a href="<c:url value='/page/searchWorker.do'/>">查找工人</a></li>
+						<li><a href="<c:url value='/page/addWorker.do'/>">增加工人</a></li>
+						<li><a href="<c:url value='/worker/count.do'/>">工人工作量</a></li>
 					</ul></li>
 			</ul>
 		</div>

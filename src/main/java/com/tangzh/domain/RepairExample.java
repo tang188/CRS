@@ -225,143 +225,63 @@ public class RepairExample {
             return (Criteria) this;
         }
 
-        public Criteria andWorkerIsNull() {
-            addCriterion("worker is null");
+        public Criteria andWidIsNull() {
+            addCriterion("wid is null");
             return (Criteria) this;
         }
 
-        public Criteria andWorkerIsNotNull() {
-            addCriterion("worker is not null");
+        public Criteria andWidIsNotNull() {
+            addCriterion("wid is not null");
             return (Criteria) this;
         }
 
-        public Criteria andWorkerEqualTo(String value) {
-            addCriterion("worker =", value, "worker");
+        public Criteria andWidEqualTo(Integer value) {
+            addCriterion("wid =", value, "wid");
             return (Criteria) this;
         }
 
-        public Criteria andWorkerNotEqualTo(String value) {
-            addCriterion("worker <>", value, "worker");
+        public Criteria andWidNotEqualTo(Integer value) {
+            addCriterion("wid <>", value, "wid");
             return (Criteria) this;
         }
 
-        public Criteria andWorkerGreaterThan(String value) {
-            addCriterion("worker >", value, "worker");
+        public Criteria andWidGreaterThan(Integer value) {
+            addCriterion("wid >", value, "wid");
             return (Criteria) this;
         }
 
-        public Criteria andWorkerGreaterThanOrEqualTo(String value) {
-            addCriterion("worker >=", value, "worker");
+        public Criteria andWidGreaterThanOrEqualTo(Integer value) {
+            addCriterion("wid >=", value, "wid");
             return (Criteria) this;
         }
 
-        public Criteria andWorkerLessThan(String value) {
-            addCriterion("worker <", value, "worker");
+        public Criteria andWidLessThan(Integer value) {
+            addCriterion("wid <", value, "wid");
             return (Criteria) this;
         }
 
-        public Criteria andWorkerLessThanOrEqualTo(String value) {
-            addCriterion("worker <=", value, "worker");
+        public Criteria andWidLessThanOrEqualTo(Integer value) {
+            addCriterion("wid <=", value, "wid");
             return (Criteria) this;
         }
 
-        public Criteria andWorkerLike(String value) {
-            addCriterion("worker like", value, "worker");
+        public Criteria andWidIn(List<Integer> values) {
+            addCriterion("wid in", values, "wid");
             return (Criteria) this;
         }
 
-        public Criteria andWorkerNotLike(String value) {
-            addCriterion("worker not like", value, "worker");
+        public Criteria andWidNotIn(List<Integer> values) {
+            addCriterion("wid not in", values, "wid");
             return (Criteria) this;
         }
 
-        public Criteria andWorkerIn(List<String> values) {
-            addCriterion("worker in", values, "worker");
+        public Criteria andWidBetween(Integer value1, Integer value2) {
+            addCriterion("wid between", value1, value2, "wid");
             return (Criteria) this;
         }
 
-        public Criteria andWorkerNotIn(List<String> values) {
-            addCriterion("worker not in", values, "worker");
-            return (Criteria) this;
-        }
-
-        public Criteria andWorkerBetween(String value1, String value2) {
-            addCriterion("worker between", value1, value2, "worker");
-            return (Criteria) this;
-        }
-
-        public Criteria andWorkerNotBetween(String value1, String value2) {
-            addCriterion("worker not between", value1, value2, "worker");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusIsNull() {
-            addCriterion("status is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusIsNotNull() {
-            addCriterion("status is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusEqualTo(String value) {
-            addCriterion("status =", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusNotEqualTo(String value) {
-            addCriterion("status <>", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusGreaterThan(String value) {
-            addCriterion("status >", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusGreaterThanOrEqualTo(String value) {
-            addCriterion("status >=", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusLessThan(String value) {
-            addCriterion("status <", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusLessThanOrEqualTo(String value) {
-            addCriterion("status <=", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusLike(String value) {
-            addCriterion("status like", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusNotLike(String value) {
-            addCriterion("status not like", value, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusIn(List<String> values) {
-            addCriterion("status in", values, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusNotIn(List<String> values) {
-            addCriterion("status not in", values, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusBetween(String value1, String value2) {
-            addCriterion("status between", value1, value2, "status");
-            return (Criteria) this;
-        }
-
-        public Criteria andStatusNotBetween(String value1, String value2) {
-            addCriterion("status not between", value1, value2, "status");
+        public Criteria andWidNotBetween(Integer value1, Integer value2) {
+            addCriterion("wid not between", value1, value2, "wid");
             return (Criteria) this;
         }
 

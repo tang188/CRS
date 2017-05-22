@@ -10,7 +10,7 @@ import com.tangzh.domain.Repair;
 import com.tangzh.domain.RepairExample;
 import com.tangzh.mapper.RepairMapper;
 import com.tangzh.service.ITbRepairService;
-@Service("repaireService")
+@Service("repairService")
 public class ITbRepairServiceImpl implements ITbRepairService{
 
 	@Resource

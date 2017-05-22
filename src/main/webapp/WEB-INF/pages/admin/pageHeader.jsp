@@ -14,7 +14,6 @@
 	top: 10%;
 	left: 35%;
 	right: 30%;
-	bottom: 10%;
 }
 
 #mTitle {
